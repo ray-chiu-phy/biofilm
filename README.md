@@ -1,2 +1,2 @@
 # biofilm
-some tools for NUFEB simulation
+tools and src codes for NUFEB simulation
