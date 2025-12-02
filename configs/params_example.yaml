@@ -1,0 +1,47 @@
+# Example parameter configuration for NUFEB EPS / cheater sweeps
+# Adapt this to the actual names used by your fixes & input script.
+
+simulation:
+  base_input_template: "templates/base_nufeb_input.in"
+  output_dir: "data/raw/example_sweep"
+  t_end: 200.0          # total simulation time (h)
+
+sampling:
+  n_samples: 32
+  seed: 123
+
+# All parameter values are given as *ranges* for sampling.
+parameters:
+  # EPS-related
+  eps_yield_cooperator:
+    distribution: uniform
+    min: 0.0
+    max: 0.4
+  eps_yield_cheater:
+    distribution: uniform
+    min: 0.0
+    max: 0.2
+
+  # Growth rates (example units: 1/h)
+  mu_max_cross1:
+    distribution: uniform
+    min: 0.1
+    max: 0.6
+  mu_max_cross2:
+    distribution: uniform
+    min: 0.1
+    max: 0.6
+  mu_max_cheater:
+    distribution: uniform
+    min: 0.1
+    max: 0.8
+
+  # Diffusion coefficients (m^2/s, log-uniform here)
+  D_substrate:
+    distribution: loguniform
+    min: 1.0e-11
+    max: 1.0e-9
+  D_metabolite:
+    distribution: loguniform
+    min: 1.0e-11
+    max: 1.0e-9

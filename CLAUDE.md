@@ -3,41 +3,140 @@
 ## Quick Reference
 
 **Project**: Agent-based simulation of cross-feeding bacteria with EPS
-**Tech**: NUFEB/LAMMPS, C++, Python
-**Author**: 邱弈瑞 (Chiu, Yi-Jui)、 蔡秀吉（Hsiu-Chi Tsai）
+**Tech**: NUFEB/LAMMPS, C++, Python (SALib, BoTorch, Ray)
+**Author**: 邱弈瑞 (Chiu, Yi-Jui)、蔡秀吉 (Hsiu-Chi Tsai)
+
+---
+
+## Project Overview
+
+**Goal**: Explore how EPS production and spatial structure affect the survival time of
+cross-feeding communities in the presence of metabolite cheaters, using NUFEB + LAMMPS
+as the simulator and Python for large-scale parameter sweeps, sensitivity analysis,
+and surrogate modelling.
+
+**Core Idea**: Treat each NUFEB run as an expensive black-box function `f(theta)` that
+outputs metrics such as consortium collapse time, biomass trajectories, and spatial
+structure indicators.
+
+---
 
 ## Directory Structure
 
 ```
-src/cpp/growth_models/    # Custom NUFEB growth models
-src/python/analysis/      # Data analysis scripts
-src/python/input_generation/  # Input file generators
-config/                   # NUFEB input scripts (.nufeb, .in)
-docs/                     # Documentation, poster, install guide
-biofilm/                  # NUFEB workspace and simulation outputs
+.
+├── CLAUDE.md              # 本檔案 - 專案指引
+├── README.md              # 快速開始指南
+├── requirements.txt       # Python 依賴
+├── Snakefile              # Snakemake 工作流
+├── .gitignore             # Git 排除規則
+│
+├── src/                   # 原始碼
+│   ├── cpp/
+│   │   └── growth_models/ # C++ NUFEB 自訂生長模型
+│   │       ├── fix_growth_cross1.cpp/.h
+│   │       ├── fix_growth_cross2.cpp/.h
+│   │       ├── fix_growth_cheater.cpp/.h
+│   │       ├── fix_growth_eps.cpp/.h
+│   │       └── fix_eps_secretion.cpp/.h
+│   └── python/
+│       ├── eps_biofilm/   # 主要分析套件
+│       │   ├── parameter_space.py  # 參數定義與取樣
+│       │   ├── io_nufeb.py         # NUFEB 輸出解析
+│       │   ├── metrics.py          # 計算崩潰時間等指標
+│       │   ├── salib_sensitivity.py # 全域敏感度分析
+│       │   ├── botorch_surrogate.py # GP 代理模型
+│       │   └── plots.py            # 繪圖工具
+│       ├── analysis/
+│       │   ├── theory_models/      # 理論模型視覺化
+│       │   │   ├── cheater.py      # 含 cheater 的動態
+│       │   │   ├── no_cheater.py   # 無 cheater 的動態
+│       │   │   └── LSA1.py         # 線性穩定性分析
+│       │   ├── collect_lifetime.py # 存活時間分析
+│       │   └── growth_curve.py     # 生長曲線繪製
+│       └── input_generation/       # 輸入檔生成器
+│
+├── scripts/               # 執行腳本
+│   ├── run_single_sim.py  # 單次模擬
+│   ├── run_sweep.py       # 參數掃描
+│   ├── aggregate_results.py
+│   └── parse_outputs.py
+│
+├── configs/               # 參數配置 (YAML)
+│   └── params_example.yaml
+│
+├── config/                # NUFEB 輸入腳本
+│   ├── inputscript_EPS.nufeb
+│   └── inputscript_NEPS_ch.nufeb
+│
+├── templates/             # NUFEB 輸入模板
+│   └── base_nufeb_input.in
+│
+├── docs/                  # 文件
+│   ├── poster.md          # 海報內容
+│   ├── context.md         # 口頭報告稿
+│   ├── Install_NUFEB.md   # NUFEB 安裝指南
+│   ├── TOOLS.md           # 工具清單
+│   ├── images/            # 海報圖片
+│   └── references/        # PDF 文獻 (~28 篇)
+│
+├── notebooks/             # Jupyter 筆記本
+│   ├── 00_exploration.ipynb
+│   └── 10_paper_figures.ipynb
+│
+├── data/                  # 資料
+│   ├── raw/               # 原始 NUFEB 輸出
+│   └── processed/         # 處理後的指標
+│
+├── biofilm/               # NUFEB 工作區 (大部分在 .gitignore)
+│
+├── archive/               # 舊版歸檔
+│   └── data_and_code/
+│
+└── .github/workflows/     # CI 配置
+    └── ci.yml
 ```
+
+---
 
 ## Key Files
 
-- `src/cpp/growth_models/fix_growth_cross*.cpp` - Cross-feeder growth (Monod kinetics + metabolite exchange)
-- `src/cpp/growth_models/fix_growth_cheater.cpp` - Cheater growth (consume only)
-- `src/cpp/growth_models/fix_eps_secretion.cpp` - EPS particle creation
-- `config/inputscript_EPS.nufeb` - With EPS secretion
-- `config/inputscript_NEPS_ch.nufeb` - Control (no EPS)
+### C++ Growth Models
+- `fix_growth_cross1.cpp` - Cross-feeder 1 生長 (Monod + 代謝物交換)
+- `fix_growth_cross2.cpp` - Cross-feeder 2 生長
+- `fix_growth_cheater.cpp` - Cheater 生長 (只消耗不分泌)
+- `fix_eps_secretion.cpp` - EPS 粒子分泌機制
+
+### Python Analysis
+- `src/python/eps_biofilm/metrics.py` - 計算崩潰時間
+- `src/python/eps_biofilm/salib_sensitivity.py` - Sobol 敏感度分析
+- `src/python/eps_biofilm/botorch_surrogate.py` - 貝葉斯優化
+
+---
 
 ## Commands
 
 ```bash
-# Run simulation
+# 建立環境
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+# 執行單次模擬
 cd biofilm/crossfeeding
 mpirun -np 4 lmp_mpi -in inputscript_EPS.nufeb
 
-# Generate initial atoms
+# 執行參數掃描
+python scripts/run_sweep.py --config configs/params_example.yaml --n-samples 32
+
+# 生成初始原子配置
 python src/python/input_generation/atom_generate.py
 
-# Analyze survival data
+# 分析存活時間
 python src/python/analysis/collect_lifetime.py
 ```
+
+---
 
 ## Development Guidelines
 
@@ -51,154 +150,152 @@ python src/python/analysis/collect_lifetime.py
 - Comments: 繁體中文, shorter than code itself
 - Bug fixes: Analyze logs step-by-step, don't guess
 
+開發計畫務必整合 "TDD Rule" 和 "Boy Scout Rule" 或是 "Small CLs"。
+程式碼要像人類撰寫，保持自然，遵循 Code Readability。
+
+---
+
 ## Excluded from Git
 
-- `biofilm/` simulation outputs (VTK, HDF5)
+- `biofilm/` simulation outputs (VTK, HDF5, ~26GB)
 - `ParaView-*/` (external software, 3.4GB)
-- `*.vtu`, `*.vti`, `*.h5`, `*.zip`
-
-開發計畫務必整合 "TDD Rule" 和 "Boy Scout Rule" 或是 "Small CLs"（不清楚就請上網查詢這些軟體開發的觀念和原則）。同時，請特別註記不可以出現生成 AI 常見的低級錯誤 "過度生成"、"過早抽象"，另外，也不可以出現任何與 claude 和 anthropic 有關的內容或是訊息。
-
-計畫當中設計的 TDD 原則請你務必都要進行實作（所有的任務都要實作），不能有任何的任務被 SKIPED，通通都要 implementation。同時，程式碼的檔案的變量和變數命名，不要像是 AI 生成的異常完美，要像是人類撰寫的，實作時要確保有清晰的邏輯，同時請務必保持程式碼自然，不要讓人看出是 AI 生成，也請務必遵循 Code Readability，記住代碼是寫給人看的，所以要有自然的代碼流程（無論在任何階段通通不可以 push）。同時註解要用台灣的繁體中文口語邏輯還進行撰寫，程式碼的註解不得比程式碼本身還長。請注意決定不行在不需要的地方強行使用最新的炫技語法，同時不要一直嘗試 Refactor ，要保持專案程式碼的命名一致性，不要在不同檔案定義了五（數個）一樣功能的函數。同時，當遇到　BUG 時間，解決 BUG 的方式應該是一步一步的分析 Log 或 Stack Trace。
-
-
-# CLAUDE.md – EPS Biofilm Cheater Project
-
-This repository is for running and analysing **NUFEB-based individual-based simulations**
-of cross-feeding microbial consortia with EPS production and cheater invasion.
-
-Claude Code should use this file as the main reference for:
-- Project goals and context
-- Repository layout
-- Coding conventions
-- Recommended workflows and commands
+- `*.vtu`, `*.vti`, `*.h5`, `*.zip`, `*.mp4`
 
 ---
 
-## 1. Project overview
+## Tech Stack
 
-- **Goal**: Explore how EPS production and spatial structure affect the survival time of
-  cross-feeding communities in the presence of metabolite cheaters, using NUFEB + LAMMPS
-  as the simulator and Python for large-scale parameter sweeps, sensitivity analysis,
-  and surrogate modelling.
-- **Core idea**: Treat each NUFEB run as an expensive black-box function `f(theta)` that
-  outputs metrics such as consortium collapse time, biomass trajectories, and spatial
-  structure indicators. Python tooling (SALib, BoTorch, Ray, etc.) orchestrates and
-  analyses many such runs.
+### Simulation
+- NUFEB / LAMMPS (C++, MPI)
+- Custom growth fixes
 
----
-
-## 2. Tech stack
-
-- **Simulation backend**
-  - C++ / NUFEB / LAMMPS (compiled locally; not vendored in this repo)
-  - Custom NUFEB fixes for EPS, cross-feeding and cheaters (your `fix_growth_*` code)
-- **Orchestration & analysis (Python 3.10+)**
-  - Snakemake or Ray for running parameter sweeps
-  - SALib for global sensitivity analysis
-  - PyTorch + BoTorch/GPyTorch for GP surrogates & Bayesian optimisation
-  - NumPy / pandas / xarray / matplotlib for data handling & plotting
-
-Assumptions:
-- NUFEB/LAMMPS is installed and available as `lmp` or `lmp_nufeb` on `$PATH`.
-- Python dependencies are installed via `pip install -r requirements.txt`.
+### Orchestration & Analysis (Python 3.10+)
+- **Snakemake / Ray** - 參數掃描調度
+- **SALib** - 全域敏感度分析
+- **BoTorch / GPyTorch** - GP 代理模型
+- **NumPy / pandas / xarray** - 資料處理
+- **matplotlib / seaborn** - 視覺化
 
 ---
 
-## 3. Repository layout
+## Restructuring Log (2025-12-02)
 
-- `CLAUDE.md` — This file (read me first).
-- `README.md` — Quickstart and high-level overview.
-- `TOOLS.md` — Curated list of external tools for this project.
-- `requirements.txt` — Python dependencies.
-- `Snakefile` — (optional) Snakemake workflow for large sweeps.
-- `configs/`
-  - `params_example.yaml` — Example parameter ranges for sweeps.
-- `templates/`
-  - `base_nufeb_input.in` — Minimal NUFEB/LAMMPS input template with placeholders.
-- `scripts/`
-  - `run_single_sim.py` — Run one NUFEB simulation.
-  - `run_sweep.py` — Orchestrate many runs (local or Ray).
-  - `aggregate_results.py` — Turn raw dumps into tidy tables.
-  - `parse_outputs.py` — Low-level parsers and demos.
-- `src/eps_biofilm/`
-  - `parameter_space.py` — Parameter definitions & sampling.
-  - `io_nufeb.py` — IO helpers for NUFEB outputs.
-  - `metrics.py` — Compute collapse time, EPS fractions, etc.
-  - `salib_sensitivity.py` — Global sensitivity analysis helpers.
-  - `botorch_surrogate.py` — GP surrogates & Bayesian optimisation.
-  - `plots.py` — Common plotting helpers.
-- `notebooks/`
-  - `00_exploration.ipynb` — EDA + quick plots (skeleton file).
-  - `10_paper_figures.ipynb` — Reproducible figures for paper (skeleton file).
-- `data/`
-  - `raw/` — Raw NUFEB outputs (dumps, logs, VTK, CSV).
-  - `processed/` — Aggregated metrics (Parquet/CSV, ready for analysis).
-- `.github/workflows/ci.yml` — Minimal CI skeleton.
+### 檔案移動記錄
+
+| 原位置 | 新位置 | 說明 |
+|--------|--------|------|
+| `/*.pdf` (8 files) | `docs/references/` | 根目錄 PDF 文獻 |
+| `ref/*.pdf` (20 files) | `docs/references/` | ref 目錄 PDF 文獻 |
+| `image*.png`, `l_square.jpg` | `docs/images/` | 海報圖片 |
+| `cheater.py`, `no_cheater.py`, `LSA1.py` | `src/python/analysis/theory_models/` | 理論模型腳本 |
+| `poster.md`, `context.md`, `Install NUFEB.md` | `docs/` | 文件檔案 |
+| `data_and_code/`, `data_and_code.zip` | `archive/` | 舊版歸檔 |
+| `goal/src/eps_biofilm/*` | `src/python/eps_biofilm/` | 整合新分析套件 |
+| `goal/scripts/*` | `scripts/` | 執行腳本 |
+| `goal/configs/*` | `configs/` | 參數配置 |
+| `goal/templates/*` | `templates/` | NUFEB 模板 |
+| `goal/notebooks/*` | `notebooks/` | Jupyter 筆記本 |
+| `goal/.github/*` | `.github/` | CI 配置 |
+| `goal/TOOLS.md` | `docs/TOOLS.md` | 工具文件 |
+
+### 刪除的檔案
+- `data_generate.py`, `data_preview.py` (根目錄重複)
+- `ref/` 空目錄
+- `goal/` 目錄 (已整合)
 
 ---
 
-## 4. Coding conventions
+## Future Research Directions
 
-**General**
-- Prefer small, composable functions with clear names.
-- Separate the concerns: simulation IO, analysis, and plotting should live in different modules.
-- Avoid "god scripts" that mix everything together.
+### 文獻調研摘要 (2025-12-02)
 
-**Python**
-- Use type hints where useful (`from __future__ import annotations` is okay).
-- Light PEP 8: snake_case for variables/functions, PascalCase for classes.
-- Put script entry points under `if __name__ == "__main__":`.
+#### 核心文獻
+| 主題 | 關鍵發現 | 來源 |
+|------|----------|------|
+| EPS 作為公共財 | EPS 保護群落免受壓力，但可被 cheater 利用 | Dragoš et al. 2018, ISME J |
+| 空間結構雙面性 | 空間隔離可保護合作者，但也可能讓 cheater 建立據點 | Nadell et al. 2016, Nat Rev Microbiol |
+| 代謝交叉餵養 | 45-65% 的腸道菌種依賴交叉餵養 | Zelezniak et al. 2015, PNAS |
+| 公共財困境 | Siderophore 分泌實驗證實頻率依賴選擇 | Griffin et al. 2004, Nature |
 
-**C++ / NUFEB / LAMMPS**
-- When editing or adding fixes, follow the existing NUFEB coding style.
-- Keep biological rules (growth, EPS, cheaters) local to specific fixes.
-- Try not to touch core LAMMPS unless absolutely necessary.
-
----
-
-## 5. Typical workflows
-
-### 5.1 Small local test
-
-1. Create env and install deps:
-   - `python -m venv .venv && source .venv/bin/activate`
-   - `pip install -r requirements.txt`
-2. Edit `configs/params_example.yaml` to a tiny space.
-3. Run:
-   - `python scripts/run_sweep.py --config configs/params_example.yaml --n-samples 4`
-4. Check `data/raw/` and `data/processed/` for outputs.
-
-### 5.2 Large sweep (Ray)
-
-1. Ensure Ray is installed and Ray cluster is available (or run locally).
-2. Run:
-   - `python scripts/run_sweep.py --config configs/params_example.yaml --n-samples 512 --backend ray`
-3. Use `scripts/aggregate_results.py` to summarise outputs.
-4. Use `src/eps_biofilm/salib_sensitivity.py` and `botorch_surrogate.py` for analysis.
+#### 理論框架
+- **Public Goods Game**: 將 EPS 和代謝物視為可被剝削的公共財
+- **Spatial Evolutionary Game Theory**: 空間結構下的演化穩定策略
+- **Inclusive Fitness / Kin Selection**: 親緣關係如何影響合作演化
 
 ---
 
-## 6. How Claude Code should help
+### 潛在學術貢獻方向
 
-- Extend existing patterns in `src/eps_biofilm` instead of inventing new ones.
-- Propose **small, reviewable** changes (avoid huge refactors).
-- Treat NUFEB runs as expensive – always think about caching and reusing results.
-- Make suggestions that keep experiments reproducible (config-driven, not magic numbers).
+#### 方向 1：EPS 產量的演化穩定策略 (ESS)
+**問題**: 什麼樣的 EPS 分泌策略能在 cheater 存在下演化穩定？
+**方法**:
+- NUFEB 模擬不同 EPS 產率的競爭
+- 建立適應度函數 fitness = f(EPS_rate, local_density, cheater_freq)
+- 使用 evolutionary invasion analysis 判斷 ESS
+**創新點**: 結合 individual-based model 與演化博弈論
+
+#### 方向 2：空間異質性對合作的非線性效應
+**問題**: EPS 產生的空間異質性如何影響 cross-feeder 與 cheater 的共存？
+**方法**:
+- 追蹤空間指標：pair correlation function, local density variance
+- 相變分析：識別合作崩潰的臨界點
+- SALib Sobol 分析各參數對空間結構的貢獻
+**創新點**: 首次在 IbM 框架下系統量化 EPS-空間-合作 的三角關係
+
+#### 方向 3：GP 代理模型加速參數探索
+**問題**: 如何高效探索高維參數空間？
+**方法**:
+- BoTorch 建立 GP 代理模型
+- Expected Improvement (EI) 或 UCB 策略
+- 主動學習選擇下一批模擬點
+**創新點**: 將機器學習代理模型應用於 biofilm 模擬，減少計算成本
+
+#### 方向 4：多尺度分析
+**問題**: 細胞層級的隨機性如何影響群落層級的穩定性？
+**方法**:
+- 微觀：單細胞生長隨機性、分裂方向
+- 介觀：colony 形態、代謝物梯度
+- 巨觀：群落崩潰時間分布
+**創新點**: 連結微觀機制與巨觀湧現現象
 
 ---
 
-## 7. Things to avoid
+### 已確認實作項目
 
-- Hard-coding absolute paths.
-- Committing raw NUFEB dumps to git.
-- Auto-generating large parts of NUFEB/LAMMPS source trees.
+1. **Sobol 敏感度分析** (優先級：高)
+   - 參數：EPS 產率、生長速率、代謝物擴散係數、初始 cheater 比例
+   - 輸出：崩潰時間的一階/總階 Sobol 指數
+   - 工具：`src/python/eps_biofilm/salib_sensitivity.py`
+
+2. **GP 代理模型** (優先級：高)
+   - 輸入：參數向量 θ
+   - 輸出：預測崩潰時間 + 不確定性
+   - 工具：`src/python/eps_biofilm/botorch_surrogate.py`
+
+3. **空間統計指標** (優先級：中)
+   - Pair correlation function g(r)
+   - Local clustering coefficient
+   - Voronoi tessellation 分析
+
+4. **視覺化 Dashboard** (優先級：低)
+   - 整合所有指標的互動式介面
+   - 可能使用 Panel 或 Streamlit
 
 ---
 
-## 8. Future extensions
+### 待驗證假說
 
-Potential future additions:
-- `workflows/` for Nextflow / CWL / WDL pipelines.
-- Container definitions (Docker/Singularity).
-- MCP tools to launch runs directly from Claude Code.
+1. **H1**: EPS 產生的空間隔離增加 cross-feeder 之間的代謝物濃度，提升合作效益
+2. **H2**: 存在最佳 EPS 產率，過高會消耗過多資源，過低無法有效隔離 cheater
+3. **H3**: 初始空間配置對最終存活時間有顯著影響（path dependence）
+4. **H4**: 崩潰時間分布呈現非高斯特徵，反映底層的臨界動力學
+
+---
+
+### 實驗驗證可能性
+
+若模擬結果顯著，可考慮以下實驗系統驗證：
+- **E. coli 互補營養缺陷型** (auxotrophs)：經典 cross-feeding 系統
+- **Pseudomonas aeruginosa biofilm**：天然 EPS 產生者
+- **合成生物學線路**：可調控 EPS 產量的工程菌株
+- **微流控晶片**：控制空間結構和代謝物梯度

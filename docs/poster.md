@@ -8,14 +8,14 @@ Different bacterial species often share habitats, giving rise to interspecific i
 
 Cross-feeding, a prevalent form of cooperation within microbial communities, takes place in the surface waters of lakes and oceans, submarine volcano, soil, human intestine, etc. Generally, two species form a cross-feeding pair; each secretes an essential nutrient (e.g. metabolite) that the partner cannot synthesize. (Fig. 1)
 
-![alt text](image.png)
+![alt text](images/image.png)
 > Fig. 1 Schematic of Cross-feeding. D’Souza et al., Nat. Prod. Rep., 2018
 
 Some mutated members of cross-feeding communities become cheaters that only consume and do not secrete. In classical ecology theory, these cheaters are expected to have higher fitness because they pay no secretion cost. As they spread, they can eliminate cross-feeders and collapse the community. For this reason, people study how cross-feeders persist in the face of cheaters.
 
 As a widespread form of microbial life, biofilms embed cells in an extracellular matrix rich in extracellular polymeric substance (EPS). Yet most work on population dynamics has not examined the specific role of EPS. Here, we test whether EPS secretion helps cross-feeders resist cheaters using agent-based models.
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 > Fig. 2. SEM image of biofilm
 https://www.bactiguard.com/healthcare-challenges/biofilm/
 
@@ -23,8 +23,8 @@ https://www.bactiguard.com/healthcare-challenges/biofilm/
 We used NUFEB to perform agent-based simulation. Built on top of the molecular dynamics software LAMMPS, NUFEB is an open-source engineering simulator for the dynamics of biofilm. NUFEB allows biological, physical, and chemical processes to be implemented to simulate real-world systems. To simulate cross-feeders and cheaters dynamics in this study, we’ve developed new growth models. Then we compared the results of simulations with and without EPS secretion to see its effect on the resilience of cross-feeders. 
 
 ## Methods
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](images/image-2.png)
+![alt text](images/image-3.png)
 
 Fig. 3 Visualization of NUFEB simulation. A particle in the figure stands for a microbe. The concentration of chemicals is governed by reaction-diffusion equation.
 
@@ -35,15 +35,15 @@ Groups:  with EPS vs. without EPS (n = 50 simulation, independent random seeds).
 Collapse:  both cross-feeders fall below 50 cells
 Statistics:  The time to collapse was analyzed using the Kaplan-Meier method, and groups were compared using the log-rank test.
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 > Fig. 4 Cells are uniformly distributed on the plane.
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 > Fig. 5   Population dynamics of the three species.
 > A: without EPS
 > B: with EPS
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 Fig. 6   Survival curves of groups with and without EPS
 

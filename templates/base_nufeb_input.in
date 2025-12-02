@@ -1,0 +1,26 @@
+# templates/base_nufeb_input.in
+#
+# Minimal sketch of a NUFEB/LAMMPS input script.
+# This is a *template* – you should replace PLACEHOLDER_*
+# with real values or have your Python code render them.
+
+units           si
+dimension       3
+boundary        f f f
+atom_style      sphere
+
+# --- Geometry / grid (placeholder) ---
+region          box block 0 1 0 1 0 1
+create_box      1 box
+
+# --- Example: load NUFEB modules (syntax may differ by version) ---
+# fix            bio all nufeb/bio ...
+
+# --- Time stepping (placeholder) ---
+timestep        1.0
+
+# Your EPS / cross-feeding / cheater fixes should be configured here,
+# with parameters injected by your Python wrapper.
+
+# Run section (placeholder)
+# run            ${T_END_STEPS}
