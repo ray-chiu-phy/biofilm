@@ -1,0 +1,165 @@
+```{r}
+getwd()
+
+```
+
+```{r}
+install.packages(c("survival","survminer","readr","dplyr","ggplot2"))
+```
+```{r}
+install.packages("survminer", dependencies = TRUE)  
+library(survminer)                                  
+packageVersion("survminer")  
+```
+
+```{r}
+remove.packages("xfun")
+install.packages("xfun")
+```
+```{r}
+packageVersion("xfun")
+```
+
+```{r}
+suppressPackageStartupMessages({
+  library(survival)
+  library(survminer)
+  library(readr)
+  library(dplyr)
+  library(ggplot2)
+  library(xfun)
+})
+```
+
+
+
+```{r}
+df <- readr::read_csv("C:\\Users\\User\\Desktop\\分子研究\\中研院物理所實習\\biofilm\\crossfeeding\\data\\lifetimes.csv", show_col_types = FALSE)
+```
+```{r}
+if (!exists("ADMIN_CENSOR_TIME")) {
+  ADMIN_CENSOR_TIME <- suppressWarnings(max(df$lifetime_step, na.rm = TRUE))
+  if (!is.finite(ADMIN_CENSOR_TIME)) ADMIN_CENSOR_TIME <- NA_real_
+}
+
+if (!("censor_time" %in% names(df))) {
+  df$censor_time <- ADMIN_CENSOR_TIME
+}
+
+```
+```{r}
+dat <- df %>%
+  mutate(
+    status = ifelse(is.na(lifetime_step) | !is.finite(lifetime_step), 0L, 1L),
+    time   = ifelse(status == 1L, as.numeric(lifetime_step), as.numeric(censor_time)),
+    group  = factor(ifelse(label == 1, "EPS", "NEPS"), levels = c("EPS","NEPS")),
+    file   = filename
+  ) %>%
+  filter(is.finite(time) & time > 0)
+
+if (any(dat$status == 0L & !is.finite(dat$time))) {
+  stop("HA")
+}
+
+cat("Counts by group and status (1=event, 0=censored):\n")
+print(table(dat$group, dat$status))
+```
+```{r}
+# ------------------------------------------------------------
+# Kaplan–Meier
+# ------------------------------------------------------------
+fit_km <- survfit(Surv(time, status) ~ group, data = dat)
+
+suppressMessages({
+  km_med <- tryCatch(surv_median(fit_km), error = function(e) NULL)
+})
+if (!is.null(km_med)) print(km_med)
+
+lr <- survdiff(Surv(time, status) ~ group, data = dat)
+p_lr <- 1 - pchisq(lr$chisq, length(lr$n) - 1)
+cat(sprintf("Log-rank p-value: %.4g\n", p_lr))
+```
+```{r}
+max_time <- max(dat$time, na.rm = TRUE)
+brks <- pretty(dat$time, n = 6)
+break_by <- if (length(brks) >= 2) brks[2] - brks[1] else max_time/5
+
+plt <- ggsurvplot(
+  fit_km, data = dat,
+  conf.int = TRUE,
+  risk.table = FALSE,
+  risk.table.col = "strata",
+  pval = TRUE,
+  xlim = c(0, max_time),
+  break.time.by = break_by,
+  xlab = "Simulation steps",
+  ylab = "Survival rate",
+  #legend.title = "Condition",
+  legend.labs = levels(dat$group),
+  ggtheme = theme_bw()
+)
+
+print(plt)
+```
+```{r}
+T0 <- 200
+T1 <- 300
+
+dat_win <- dat %>%
+  dplyr::filter(time > T0) %>%                        
+  dplyr::mutate(
+    time_win   = pmin(time, T1) - T0,                 
+    status_win = ifelse(time > T1, 0L, status)       
+  )
+
+fit_km_win <- survfit(Surv(time_win, status_win) ~ group, data = dat_win)
+
+lr_win <- survdiff(Surv(time_win, status_win) ~ group, data = dat_win)
+p_lr_win <- 1 - pchisq(lr_win$chisq, length(lr_win$n) - 1)
+cat(sprintf("Log-rank p-value (200–300): %.4g\n", p_lr_win))
+
+p_lr_win <- 1 - pchisq(lr_win$chisq, length(lr_win$n) - 1)
+
+p_label <- sprintf("Log rank p=%.6f", p_lr_win)
+
+win_len    <- T1 - T0
+breaks_abs <- seq(T0, T1, by = 10)        
+breaks_rel <- breaks_abs - T0            
+
+labs <- c("with EPS (n=50)", "without EPS (n=50)")
+
+plt_win <- survminer::ggsurvplot(
+  fit_km_win, data = dat_win,
+  conf.int = TRUE, risk.table = FALSE, pval = p_label, pval.size = 6,
+  xlim = c(0, win_len), break.time.by = 10,
+  xlab = "Simulation step", ylab = "Survival probability S(t)",
+  legend.title = "",
+  legend.labs  = labs,
+  legend = "right",                      
+  palette = c("#E74C3C", "#0072B6"),
+  ggtheme = ggplot2::theme_bw(base_size = 18)
+)
+
+plt_win$plot  <- plt_win$plot  +
+  ggplot2::scale_x_continuous(limits = c(0, win_len),
+                              breaks = breaks_rel, labels = breaks_abs)
+plt_win$table <- plt_win$table +
+  ggplot2::scale_x_continuous(limits = c(0, win_len),
+                              breaks = breaks_rel, labels = breaks_abs)
+plt_win$plot <- plt_win$plot +
+  ggplot2::theme(
+    legend.position      = c(0.98, 0.98),     
+    legend.justification = c(1, 1),            
+    legend.background    = ggplot2::element_rect(
+      fill = ggplot2::alpha("white", 0.8),    
+      colour = "grey85"
+    ),
+    legend.title = ggplot2::element_blank()
+  )
+plt_win$plot  <- plt_win$plot  + ggplot2::theme(panel.grid.major = ggplot2::element_blank(),
+                                                panel.grid.minor = ggplot2::element_blank())
+
+print(plt_win)
+
+```
+

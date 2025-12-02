@@ -1,0 +1,1287 @@
+eno1
+------------------------------------------------------
+Job is running on:node002,node003
+------------------------------------------------------
+PBS: Start at Thu Aug 14 00:37:14 CST 2025
+PBS: Job name is hetero
+PBS: Job id is 2383.multiscale
+PBS: qsub is running on multiscale
+PBS: Current working directory is /home/ray/biofilm/project/crossfeeding
+PBS: Originating queue is workq
+PBS: Executing queue is workq
+PBS: Execution mode is PBS_BATCH
+PBS: Node file is /var/spool/pbs/aux/2383.multiscale
+PBS: Current home directory is /home/ray
+PBS: SHELL = /bin/bash
+------------------------------------------------------
+=======start running==============
+LAMMPS (23 Jun 2022 - Update 4)
+  using 1 OpenMP thread(s) per MPI task
+using multi-threaded neighbor list subroutines
+Reading data file ...
+  orthogonal box = (0 0 0) to (6e-05 6e-05 6e-05)
+  8 by 4 by 1 MPI processor grid
+  reading atoms ...
+  150 atoms
+  read_data CPU = 0.044 seconds
+50 atoms in group CROSS1
+50 atoms in group CROSS2
+50 atoms in group CHEATER
+0 atoms in group dead
+No /omp style for force computation currently active
+No /omp style for force computation currently active
+No /omp style for force computation currently active
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+Last active /omp style is pair_style gran/hooke/history/omp
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 2.49e-06
+  ghost atom cutoff = 2.49e-06
+  binsize = 1.245e-06, bins = 49 49 49
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair gran/hooke/history/omp, perpetual
+      attributes: half, newton off, size, history, omp
+      pair build: half/size/bin/newtoff/omp
+      stencil: full/bin/3d
+      bin: standard
+Setting up NUFEB run ...
+  Unit style           : si
+  Current step         : 0
+  Biological time step : 3000
+  Chemical time step   : 0.0001
+  Physical time step   : 0.01
+  Grid mesh            : 12 x 12 x 12 
+Per MPI rank memory allocation (min/avg/max) = 10.99 | 11 | 11.01 Mbytes
+   Step          CPU          Atoms      v_ncross1      v_ncross2      v_ncheater      v_ndead         v_mass    
+         0   0                    150   50             50             50             0              1.3295396e-13
+Initial diffusion reaction converged in 5000 steps
+pair interaction: 1 steps (pressure 3.337483e-01 N/m2)
+diffusion: 5000 steps
+         1   1.2118295            236   80             78             78             0              1.3645398e-13
+pair interaction: 1 steps (pressure 8.079902e-01 N/m2)
+diffusion: 2899 steps
+         2   1.8981524            306   96             103            107            0              1.4004991e-13
+pair interaction: 1 steps (pressure 7.120118e-01 N/m2)
+diffusion: 1459 steps
+         3   2.2554762            323   99             113            111            0              1.437442e-13 
+pair interaction: 1 steps (pressure 8.825649e-01 N/m2)
+diffusion: 1268 steps
+         4   2.5870701            331   100            115            116            0              1.4753725e-13
+pair interaction: 1 steps (pressure 8.054872e-01 N/m2)
+diffusion: 1220 steps
+         5   2.8990235            341   101            117            123            0              1.5143234e-13
+pair interaction: 1 steps (pressure 9.379568e-01 N/m2)
+diffusion: 1171 steps
+         6   3.2012018            351   104            120            127            0              1.5543242e-13
+pair interaction: 1 steps (pressure 8.824798e-01 N/m2)
+diffusion: 1215 steps
+         7   3.5132958            358   110            121            127            0              1.595404e-13 
+pair interaction: 2 steps (pressure 8.584887e-01 N/m2)
+diffusion: 1206 steps
+         8   3.8225194            364   114            123            127            0              1.6375904e-13
+pair interaction: 2 steps (pressure 8.559855e-01 N/m2)
+diffusion: 1168 steps
+         9   4.1257924            373   119            125            129            0              1.6809159e-13
+pair interaction: 2 steps (pressure 8.693525e-01 N/m2)
+diffusion: 1182 steps
+        10   4.4637575            381   121            128            132            0              1.725413e-13 
+pair interaction: 2 steps (pressure 8.496586e-01 N/m2)
+diffusion: 1261 steps
+        11   4.7841412            391   123            133            135            0              1.7711142e-13
+pair interaction: 2 steps (pressure 8.476243e-01 N/m2)
+diffusion: 1264 steps
+        12   5.1040129            401   128            137            136            0              1.8180554e-13
+pair interaction: 2 steps (pressure 8.689985e-01 N/m2)
+diffusion: 1266 steps
+        13   5.4240013            413   132            139            142            0              1.8662677e-13
+pair interaction: 2 steps (pressure 8.595038e-01 N/m2)
+diffusion: 1324 steps
+        14   5.7576834            418   133            140            145            0              1.9157883e-13
+pair interaction: 2 steps (pressure 8.945286e-01 N/m2)
+diffusion: 1325 steps
+        15   6.0922557            437   137            147            153            0              1.9666533e-13
+pair interaction: 2 steps (pressure 9.013826e-01 N/m2)
+diffusion: 1424 steps
+        16   6.4497749            448   144            147            157            0              2.0188995e-13
+pair interaction: 2 steps (pressure 9.222123e-01 N/m2)
+diffusion: 1433 steps
+        17   6.8189565            460   145            153            162            0              2.0725674e-13
+pair interaction: 2 steps (pressure 9.642774e-01 N/m2)
+diffusion: 1412 steps
+        18   7.1744613            474   150            159            165            0              2.1277028e-13
+pair interaction: 2 steps (pressure 9.790686e-01 N/m2)
+diffusion: 1537 steps
+        19   7.5597361            483   151            162            170            0              2.1843369e-13
+pair interaction: 4 steps (pressure 9.616158e-01 N/m2)
+diffusion: 1535 steps
+        20   7.9701704            498   156            166            176            0              2.2425193e-13
+pair interaction: 2 steps (pressure 9.848169e-01 N/m2)
+diffusion: 1603 steps
+        21   8.3747411            508   159            171            178            0              2.3022994e-13
+pair interaction: 4 steps (pressure 9.475748e-01 N/m2)
+diffusion: 1599 steps
+        22   8.7824529            524   166            175            183            0              2.3637252e-13
+pair interaction: 4 steps (pressure 9.642138e-01 N/m2)
+diffusion: 1677 steps
+        23   9.211345             541   166            189            186            0              2.4268419e-13
+pair interaction: 4 steps (pressure 9.485377e-01 N/m2)
+diffusion: 1708 steps
+        24   9.6442423            549   168            194            187            0              2.4916958e-13
+pair interaction: 2 steps (pressure 9.906025e-01 N/m2)
+diffusion: 1789 steps
+        25   10.097444            558   171            200            187            0              2.5583334e-13
+pair interaction: 6 steps (pressure 9.609332e-01 N/m2)
+diffusion: 1828 steps
+        26   10.560505            579   178            205            196            0              2.6268121e-13
+pair interaction: 4 steps (pressure 9.901552e-01 N/m2)
+diffusion: 1898 steps
+        27   11.041737            599   187            212            200            0              2.6971821e-13
+pair interaction: 6 steps (pressure 9.829642e-01 N/m2)
+diffusion: 1951 steps
+        28   11.535836            621   192            220            209            0              2.7695114e-13
+pair interaction: 6 steps (pressure 9.582593e-01 N/m2)
+diffusion: 1968 steps
+        29   12.035094            635   199            221            215            0              2.8438566e-13
+pair interaction: 4 steps (pressure 9.942534e-01 N/m2)
+diffusion: 2027 steps
+        30   12.571041            651   206            224            221            0              2.9202705e-13
+pair interaction: 8 steps (pressure 9.737089e-01 N/m2)
+diffusion: 2122 steps
+        31   13.107342            665   212            231            222            0              2.9988168e-13
+pair interaction: 6 steps (pressure 9.706398e-01 N/m2)
+diffusion: 2144 steps
+        32   13.649713            677   216            236            225            0              3.0795624e-13
+pair interaction: 8 steps (pressure 9.784020e-01 N/m2)
+diffusion: 2145 steps
+        33   14.186749            696   222            244            230            0              3.1625754e-13
+pair interaction: 10 steps (pressure 9.718349e-01 N/m2)
+diffusion: 2318 steps
+        34   14.774116            719   229            249            241            0              3.2479022e-13
+pair interaction: 6 steps (pressure 9.969783e-01 N/m2)
+diffusion: 2338 steps
+        35   15.364129            735   232            256            247            0              3.3356452e-13
+pair interaction: 8 steps (pressure 9.887083e-01 N/m2)
+diffusion: 2415 steps
+        36   15.976912            753   240            260            253            0              3.4258628e-13
+pair interaction: 12 steps (pressure 9.862230e-01 N/m2)
+diffusion: 2526 steps
+        37   16.609922            782   248            268            266            0              3.5186398e-13
+pair interaction: 12 steps (pressure 9.957284e-01 N/m2)
+diffusion: 2585 steps
+        38   17.261968            807   257            275            275            0              3.6140458e-13
+pair interaction: 12 steps (pressure 9.863245e-01 N/m2)
+diffusion: 2614 steps
+        39   17.921655            823   264            280            279            0              3.7121676e-13
+pair interaction: 12 steps (pressure 9.877395e-01 N/m2)
+diffusion: 2702 steps
+        40   18.6246              853   277            289            287            0              3.8130643e-13
+pair interaction: 10 steps (pressure 9.987241e-01 N/m2)
+diffusion: 2840 steps
+        41   19.343509            867   280            296            291            0              3.916828e-13 
+pair interaction: 12 steps (pressure 9.959722e-01 N/m2)
+diffusion: 2911 steps
+        42   20.072579            890   286            303            301            0              4.023574e-13 
+pair interaction: 12 steps (pressure 9.996610e-01 N/m2)
+diffusion: 2980 steps
+        43   20.822435            910   293            312            305            0              4.133383e-13 
+pair interaction: 14 steps (pressure 9.953934e-01 N/m2)
+diffusion: 3094 steps
+        44   21.616806            933   300            322            311            0              4.2463549e-13
+pair interaction: 16 steps (pressure 9.887188e-01 N/m2)
+diffusion: 3142 steps
+        45   22.398686            952   305            330            317            0              4.3626061e-13
+pair interaction: 20 steps (pressure 9.859788e-01 N/m2)
+diffusion: 3310 steps
+        46   23.227676            985   314            344            327            0              4.4822143e-13
+pair interaction: 18 steps (pressure 9.973940e-01 N/m2)
+diffusion: 3347 steps
+        47   24.057648           1008   319            358            331            0              4.6053019e-13
+pair interaction: 24 steps (pressure 9.912786e-01 N/m2)
+diffusion: 3508 steps
+        48   24.931009           1046   330            370            346            0              4.7319691e-13
+pair interaction: 28 steps (pressure 9.927009e-01 N/m2)
+diffusion: 3575 steps
+        49   25.821226           1073   339            383            351            0              4.8623345e-13
+pair interaction: 28 steps (pressure 9.953911e-01 N/m2)
+diffusion: 3697 steps
+        50   26.76327            1119   359            395            365            0              4.9965012e-13
+pair interaction: 32 steps (pressure 9.974961e-01 N/m2)
+diffusion: 3848 steps
+        51   27.727511           1147   369            405            373            0              5.1346258e-13
+pair interaction: 38 steps (pressure 9.966651e-01 N/m2)
+diffusion: 3931 steps
+        52   28.711166           1178   382            413            383            0              5.2768346e-13
+pair interaction: 36 steps (pressure 9.982752e-01 N/m2)
+diffusion: 4104 steps
+        53   29.740884           1205   390            422            393            0              5.4232401e-13
+pair interaction: 48 steps (pressure 9.952532e-01 N/m2)
+diffusion: 4179 steps
+        54   30.780614           1240   400            436            404            0              5.5740549e-13
+pair interaction: 42 steps (pressure 9.944223e-01 N/m2)
+diffusion: 4386 steps
+        55   32.047079           1272   414            445            413            0              5.7293572e-13
+pair interaction: 50 steps (pressure 9.993013e-01 N/m2)
+diffusion: 4531 steps
+        56   33.175172           1301   422            459            420            0              5.8893221e-13
+pair interaction: 60 steps (pressure 9.978827e-01 N/m2)
+diffusion: 4682 steps
+        57   34.348535           1337   434            467            436            0              6.0540942e-13
+pair interaction: 66 steps (pressure 9.994096e-01 N/m2)
+diffusion: 4825 steps
+        58   35.553844           1370   445            476            449            0              6.2238879e-13
+pair interaction: 82 steps (pressure 9.972734e-01 N/m2)
+diffusion: 5000 steps
+        59   36.810159           1402   457            485            460            0              6.3988452e-13
+pair interaction: 78 steps (pressure 9.994752e-01 N/m2)
+diffusion: 5000 steps
+        60   38.100034           1449   474            502            473            0              6.5791658e-13
+pair interaction: 96 steps (pressure 9.985973e-01 N/m2)
+diffusion: 5000 steps
+        61   39.376804           1495   493            519            483            0              6.7650818e-13
+pair interaction: 94 steps (pressure 9.998172e-01 N/m2)
+diffusion: 5000 steps
+        62   40.647176           1543   508            538            497            0              6.9566606e-13
+pair interaction: 116 steps (pressure 9.994843e-01 N/m2)
+diffusion: 5000 steps
+        63   41.935154           1582   516            556            510            0              7.1541642e-13
+pair interaction: 122 steps (pressure 9.998797e-01 N/m2)
+diffusion: 5000 steps
+        64   43.224969           1628   536            569            523            0              7.3577619e-13
+pair interaction: 148 steps (pressure 9.988603e-01 N/m2)
+diffusion: 5000 steps
+        65   44.525871           1666   546            581            539            0              7.567743e-13 
+pair interaction: 140 steps (pressure 9.999191e-01 N/m2)
+diffusion: 5000 steps
+        66   45.827685           1716   564            601            551            0              7.7843394e-13
+pair interaction: 166 steps (pressure 9.988609e-01 N/m2)
+diffusion: 5000 steps
+        67   47.14654            1767   577            622            568            0              8.0077372e-13
+pair interaction: 134 steps (pressure 9.992241e-01 N/m2)
+diffusion: 5000 steps
+        68   48.455054           1812   593            634            585            0              8.2382332e-13
+pair interaction: 192 steps (pressure 9.995869e-01 N/m2)
+diffusion: 5000 steps
+        69   49.804119           1871   610            657            604            0              8.4760678e-13
+pair interaction: 216 steps (pressure 9.996914e-01 N/m2)
+diffusion: 5000 steps
+        70   51.178685           1929   629            678            622            0              8.721607e-13 
+pair interaction: 260 steps (pressure 9.995898e-01 N/m2)
+diffusion: 5000 steps
+        71   52.673425           1986   645            698            643            0              8.9750549e-13
+pair interaction: 260 steps (pressure 9.997315e-01 N/m2)
+diffusion: 5000 steps
+        72   54.082894           2046   666            722            658            0              9.2367039e-13
+pair interaction: 284 steps (pressure 9.997839e-01 N/m2)
+diffusion: 5000 steps
+        73   55.509217           2119   693            748            678            0              9.5069795e-13
+pair interaction: 308 steps (pressure 9.993568e-01 N/m2)
+diffusion: 5000 steps
+        74   56.946974           2184   711            771            702            0              9.7861288e-13
+pair interaction: 336 steps (pressure 9.999260e-01 N/m2)
+diffusion: 5000 steps
+        75   58.389273           2237   733            790            714            0              1.007455e-12 
+pair interaction: 352 steps (pressure 9.995590e-01 N/m2)
+diffusion: 5000 steps
+        76   59.870084           2300   756            816            728            0              1.0372333e-12
+pair interaction: 294 steps (pressure 9.999389e-01 N/m2)
+diffusion: 5000 steps
+        77   61.325646           2368   779            838            751            0              1.0680221e-12
+pair interaction: 354 steps (pressure 9.996727e-01 N/m2)
+diffusion: 5000 steps
+        78   62.8056             2435   806            861            768            0              1.0998537e-12
+pair interaction: 462 steps (pressure 9.997268e-01 N/m2)
+diffusion: 5000 steps
+        79   64.346815           2502   827            886            789            0              1.1327465e-12
+pair interaction: 490 steps (pressure 9.998617e-01 N/m2)
+diffusion: 5000 steps
+        80   65.954478           2573   850            913            810            0              1.166755e-12 
+pair interaction: 630 steps (pressure 9.999703e-01 N/m2)
+diffusion: 5000 steps
+        81   67.59163            2669   887            943            839            0              1.2019449e-12
+pair interaction: 826 steps (pressure 9.999410e-01 N/m2)
+diffusion: 5000 steps
+        82   69.334979           2745   909            968            868            0              1.2383505e-12
+pair interaction: 870 steps (pressure 9.998304e-01 N/m2)
+diffusion: 5000 steps
+        83   71.108545           2834   945            994            895            0              1.2760276e-12
+pair interaction: 966 steps (pressure 9.998822e-01 N/m2)
+diffusion: 5000 steps
+        84   72.949707           2911   973            1014           924            0              1.3150201e-12
+pair interaction: 850 steps (pressure 9.999159e-01 N/m2)
+diffusion: 5000 steps
+        85   74.748935           2987   995            1042           950            0              1.3554013e-12
+pair interaction: 1000 steps (pressure 1.011525e+00 N/m2)
+diffusion: 5000 steps
+        86   76.621188           3086   1029           1072           985            0              1.3972469e-12
+pair interaction: 1000 steps (pressure 1.030190e+00 N/m2)
+diffusion: 5000 steps
+        87   78.503666           3161   1047           1104           1010           0              1.4405748e-12
+pair interaction: 1000 steps (pressure 1.050548e+00 N/m2)
+diffusion: 5000 steps
+        88   80.398627           3265   1082           1144           1039           0              1.4854506e-12
+pair interaction: 1000 steps (pressure 1.034928e+00 N/m2)
+diffusion: 5000 steps
+        89   82.307211           3377   1117           1185           1075           0              1.5319285e-12
+pair interaction: 1000 steps (pressure 1.035870e+00 N/m2)
+diffusion: 5000 steps
+        90   84.264239           3504   1169           1219           1116           0              1.5800805e-12
+pair interaction: 1000 steps (pressure 1.032768e+00 N/m2)
+diffusion: 5000 steps
+        91   86.200675           3608   1206           1249           1153           0              1.6299885e-12
+pair interaction: 1000 steps (pressure 1.050968e+00 N/m2)
+diffusion: 5000 steps
+        92   88.212109           3721   1239           1293           1189           0              1.6817487e-12
+pair interaction: 1000 steps (pressure 1.045161e+00 N/m2)
+diffusion: 5000 steps
+        93   90.193335           3842   1277           1342           1223           0              1.7354191e-12
+pair interaction: 1000 steps (pressure 1.059944e+00 N/m2)
+diffusion: 5000 steps
+        94   92.174939           3958   1314           1388           1256           0              1.7911e-12   
+pair interaction: 1000 steps (pressure 1.075665e+00 N/m2)
+diffusion: 5000 steps
+        95   94.205639           4085   1354           1442           1289           0              1.8488237e-12
+pair interaction: 1000 steps (pressure 1.094801e+00 N/m2)
+diffusion: 5000 steps
+        96   96.227251           4216   1405           1479           1332           0              1.9087625e-12
+pair interaction: 1000 steps (pressure 1.111785e+00 N/m2)
+diffusion: 5000 steps
+        97   98.284102           4338   1455           1518           1365           0              1.9709333e-12
+pair interaction: 1000 steps (pressure 1.135088e+00 N/m2)
+diffusion: 5000 steps
+        98   100.33797           4498   1506           1575           1417           0              2.0354557e-12
+pair interaction: 1000 steps (pressure 1.130581e+00 N/m2)
+diffusion: 5000 steps
+        99   102.41416           4659   1555           1630           1474           0              2.1023958e-12
+pair interaction: 1000 steps (pressure 1.128228e+00 N/m2)
+diffusion: 5000 steps
+       100   104.54159           4811   1608           1681           1522           0              2.1718251e-12
+pair interaction: 1000 steps (pressure 1.135445e+00 N/m2)
+diffusion: 5000 steps
+       101   106.64427           4961   1655           1730           1576           0              2.2438729e-12
+pair interaction: 1000 steps (pressure 1.154904e+00 N/m2)
+diffusion: 5000 steps
+       102   108.76243           5119   1708           1779           1632           0              2.3185974e-12
+pair interaction: 1000 steps (pressure 1.162484e+00 N/m2)
+diffusion: 5000 steps
+       103   110.88606           5288   1759           1842           1687           0              2.3960626e-12
+pair interaction: 1000 steps (pressure 1.171504e+00 N/m2)
+diffusion: 5000 steps
+       104   113.02324           5469   1828           1899           1742           0              2.4763061e-12
+pair interaction: 1000 steps (pressure 1.175638e+00 N/m2)
+diffusion: 5000 steps
+       105   115.17229           5680   1904           1967           1809           0              2.5593355e-12
+pair interaction: 1000 steps (pressure 1.177898e+00 N/m2)
+diffusion: 5000 steps
+       106   117.34363           5872   1967           2028           1877           0              2.6450906e-12
+pair interaction: 1000 steps (pressure 1.202428e+00 N/m2)
+diffusion: 5000 steps
+       107   119.48112           6050   2019           2098           1933           0              2.7335139e-12
+pair interaction: 1000 steps (pressure 1.241206e+00 N/m2)
+diffusion: 5000 steps
+       108   121.584             6235   2083           2157           1995           0              2.8243299e-12
+pair interaction: 1000 steps (pressure 1.287099e+00 N/m2)
+diffusion: 5000 steps
+       109   123.64592           6430   2153           2215           2062           0              2.9172452e-12
+pair interaction: 1000 steps (pressure 1.278640e+00 N/m2)
+diffusion: 5000 steps
+       110   125.6999            6652   2228           2302           2122           0              3.0117759e-12
+pair interaction: 1000 steps (pressure 1.281342e+00 N/m2)
+diffusion: 5000 steps
+       111   128.08013           6860   2291           2366           2203           0              3.1074404e-12
+pair interaction: 1000 steps (pressure 1.296174e+00 N/m2)
+diffusion: 5000 steps
+       112   130.6863            7052   2346           2428           2278           0              3.2035365e-12
+pair interaction: 1000 steps (pressure 1.296334e+00 N/m2)
+diffusion: 5000 steps
+       113   133.30955           7265   2420           2495           2350           0              3.299471e-12 
+pair interaction: 1000 steps (pressure 1.306713e+00 N/m2)
+diffusion: 5000 steps
+       114   135.95177           7515   2501           2572           2442           0              3.3950094e-12
+pair interaction: 1000 steps (pressure 1.318201e+00 N/m2)
+diffusion: 5000 steps
+       115   138.56502           7722   2575           2639           2508           0              3.490015e-12 
+pair interaction: 1000 steps (pressure 1.332187e+00 N/m2)
+diffusion: 5000 steps
+       116   141.14661           7939   2648           2711           2580           0              3.5846676e-12
+pair interaction: 1000 steps (pressure 1.346621e+00 N/m2)
+diffusion: 5000 steps
+       117   143.73158           8154   2712           2792           2650           0              3.6790104e-12
+pair interaction: 1000 steps (pressure 1.365398e+00 N/m2)
+diffusion: 5000 steps
+       118   146.32332           8342   2760           2870           2712           0              3.7730284e-12
+pair interaction: 1000 steps (pressure 1.378835e+00 N/m2)
+diffusion: 5000 steps
+       119   148.8869            8548   2829           2940           2779           0              3.8666078e-12
+pair interaction: 1000 steps (pressure 1.372826e+00 N/m2)
+diffusion: 5000 steps
+       120   151.48405           8782   2920           3005           2857           0              3.9597588e-12
+pair interaction: 1000 steps (pressure 1.375088e+00 N/m2)
+diffusion: 5000 steps
+       121   154.07205           8988   2981           3069           2938           0              4.0525696e-12
+pair interaction: 1000 steps (pressure 1.382977e+00 N/m2)
+diffusion: 5000 steps
+       122   156.60139           9178   3038           3127           3013           0              4.1449623e-12
+pair interaction: 1000 steps (pressure 1.390731e+00 N/m2)
+diffusion: 5000 steps
+       123   159.15997           9375   3104           3189           3082           0              4.2369294e-12
+pair interaction: 1000 steps (pressure 1.403668e+00 N/m2)
+diffusion: 5000 steps
+       124   161.70739           9590   3167           3262           3161           0              4.3284354e-12
+pair interaction: 1000 steps (pressure 1.419762e+00 N/m2)
+diffusion: 5000 steps
+       125   164.28754           9775   3217           3331           3227           0              4.4194425e-12
+pair interaction: 1000 steps (pressure 1.437406e+00 N/m2)
+diffusion: 5000 steps
+       126   166.83628           9978   3275           3395           3308           0              4.5099892e-12
+pair interaction: 1000 steps (pressure 1.445752e+00 N/m2)
+diffusion: 5000 steps
+       127   169.43004          10184   3333           3471           3380           0              4.5999336e-12
+pair interaction: 1000 steps (pressure 1.470898e+00 N/m2)
+diffusion: 5000 steps
+       128   171.99473          10381   3397           3531           3453           0              4.6894065e-12
+pair interaction: 1000 steps (pressure 1.481229e+00 N/m2)
+diffusion: 5000 steps
+       129   174.587            10589   3466           3595           3528           0              4.7782878e-12
+pair interaction: 1000 steps (pressure 1.505974e+00 N/m2)
+diffusion: 5000 steps
+       130   177.24864          10750   3521           3637           3592           0              4.8666349e-12
+pair interaction: 1000 steps (pressure 1.521313e+00 N/m2)
+diffusion: 5000 steps
+       131   179.85843          10931   3583           3688           3660           0              4.9544387e-12
+pair interaction: 1000 steps (pressure 1.519147e+00 N/m2)
+diffusion: 5000 steps
+       132   182.49142          11116   3649           3738           3729           0              5.0416431e-12
+pair interaction: 1000 steps (pressure 1.536578e+00 N/m2)
+diffusion: 5000 steps
+       133   185.08902          11312   3708           3801           3803           0              5.1283172e-12
+pair interaction: 1000 steps (pressure 1.556596e+00 N/m2)
+diffusion: 5000 steps
+       134   187.6909           11488   3759           3859           3870           0              5.214367e-12 
+pair interaction: 1000 steps (pressure 1.556649e+00 N/m2)
+diffusion: 5000 steps
+       135   190.34211          11674   3819           3918           3937           0              5.2997582e-12
+pair interaction: 1000 steps (pressure 1.551589e+00 N/m2)
+diffusion: 5000 steps
+       136   193.01269          11882   3872           3977           4033           0              5.3846009e-12
+pair interaction: 1000 steps (pressure 1.549424e+00 N/m2)
+diffusion: 5000 steps
+       137   195.69607          12082   3931           4028           4123           0              5.4688823e-12
+pair interaction: 1000 steps (pressure 1.559111e+00 N/m2)
+diffusion: 5000 steps
+       138   198.38343          12269   3982           4079           4208           0              5.5525795e-12
+pair interaction: 1000 steps (pressure 1.567646e+00 N/m2)
+diffusion: 5000 steps
+       139   201.0553           12469   4035           4147           4287           0              5.6356834e-12
+pair interaction: 1000 steps (pressure 1.573580e+00 N/m2)
+diffusion: 5000 steps
+       140   203.76914          12664   4102           4197           4365           0              5.7181831e-12
+pair interaction: 1000 steps (pressure 1.581595e+00 N/m2)
+diffusion: 5000 steps
+       141   206.4713           12856   4176           4257           4423           0              5.80004e-12  
+pair interaction: 1000 steps (pressure 1.587052e+00 N/m2)
+diffusion: 5000 steps
+       142   209.24296          13036   4230           4313           4493           0              5.8812678e-12
+pair interaction: 1000 steps (pressure 1.585330e+00 N/m2)
+diffusion: 5000 steps
+       143   211.96565          13220   4288           4367           4565           0              5.9619057e-12
+pair interaction: 1000 steps (pressure 1.601833e+00 N/m2)
+diffusion: 5000 steps
+       144   214.68868          13386   4342           4411           4633           0              6.0419275e-12
+pair interaction: 1000 steps (pressure 1.626681e+00 N/m2)
+diffusion: 5000 steps
+       145   217.43156          13555   4388           4463           4704           0              6.121312e-12 
+pair interaction: 1000 steps (pressure 1.639464e+00 N/m2)
+diffusion: 5000 steps
+       146   220.16775          13729   4445           4506           4778           0              6.2000435e-12
+pair interaction: 1000 steps (pressure 1.657489e+00 N/m2)
+diffusion: 5000 steps
+       147   222.91258          13897   4489           4556           4852           0              6.2781743e-12
+pair interaction: 1000 steps (pressure 1.670312e+00 N/m2)
+diffusion: 4788 steps
+       148   225.64773          14078   4534           4603           4941           0              6.3556589e-12
+pair interaction: 1000 steps (pressure 1.686668e+00 N/m2)
+diffusion: 4853 steps
+       149   228.40605          14252   4596           4663           4993           0              6.4325381e-12
+pair interaction: 1000 steps (pressure 1.689256e+00 N/m2)
+diffusion: 4506 steps
+       150   231.19248          14415   4641           4719           5055           0              6.5088029e-12
+pair interaction: 1000 steps (pressure 1.709639e+00 N/m2)
+diffusion: 4693 steps
+       151   233.97507          14572   4682           4771           5119           0              6.5845153e-12
+pair interaction: 1000 steps (pressure 1.722762e+00 N/m2)
+diffusion: 4798 steps
+       152   236.76911          14750   4736           4827           5187           0              6.6595753e-12
+pair interaction: 1000 steps (pressure 1.737259e+00 N/m2)
+diffusion: 4222 steps
+       153   239.42089          14902   4780           4872           5250           0              6.73405e-12  
+pair interaction: 1000 steps (pressure 1.724657e+00 N/m2)
+diffusion: 4490 steps
+       154   242.1677           15077   4833           4927           5317           0              6.8078875e-12
+pair interaction: 1000 steps (pressure 1.728397e+00 N/m2)
+diffusion: 4324 steps
+       155   244.88656          15237   4882           4978           5377           0              6.8811224e-12
+pair interaction: 1000 steps (pressure 1.752260e+00 N/m2)
+diffusion: 4049 steps
+       156   247.58157          15388   4922           5014           5452           0              6.9537464e-12
+pair interaction: 1000 steps (pressure 1.761404e+00 N/m2)
+diffusion: 4385 steps
+       157   250.34057          15541   4961           5063           5517           0              7.0257737e-12
+pair interaction: 1000 steps (pressure 1.759400e+00 N/m2)
+diffusion: 4141 steps
+       158   253.07405          15711   4998           5114           5599           0              7.0971911e-12
+pair interaction: 1000 steps (pressure 1.775670e+00 N/m2)
+diffusion: 4449 steps
+       159   255.86307          15887   5050           5158           5679           0              7.1680057e-12
+pair interaction: 1000 steps (pressure 1.780875e+00 N/m2)
+diffusion: 4088 steps
+       160   258.67306          16057   5107           5215           5735           0              7.238181e-12 
+pair interaction: 1000 steps (pressure 1.793443e+00 N/m2)
+diffusion: 3690 steps
+       161   261.38157          16175   5139           5251           5785           0              7.3077935e-12
+pair interaction: 1000 steps (pressure 1.788132e+00 N/m2)
+diffusion: 4335 steps
+       162   264.26802          16356   5191           5301           5864           0              7.3768352e-12
+pair interaction: 1000 steps (pressure 1.780386e+00 N/m2)
+diffusion: 4456 steps
+       163   267.1655           16497   5223           5345           5929           0              7.4452519e-12
+pair interaction: 1000 steps (pressure 1.772907e+00 N/m2)
+diffusion: 4447 steps
+       164   270.03055          16677   5267           5405           6005           0              7.513143e-12 
+pair interaction: 1000 steps (pressure 1.777300e+00 N/m2)
+diffusion: 4260 steps
+       165   272.87574          16842   5320           5454           6068           0              7.580423e-12 
+pair interaction: 1000 steps (pressure 1.778395e+00 N/m2)
+diffusion: 3858 steps
+       166   275.66326          16988   5368           5501           6119           0              7.6471384e-12
+pair interaction: 1000 steps (pressure 1.784107e+00 N/m2)
+diffusion: 4106 steps
+       167   278.49249          17130   5407           5537           6186           0              7.7133287e-12
+pair interaction: 1000 steps (pressure 1.783754e+00 N/m2)
+diffusion: 3514 steps
+       168   281.21217          17288   5453           5580           6255           0              7.7789315e-12
+pair interaction: 1000 steps (pressure 1.777110e+00 N/m2)
+diffusion: 4090 steps
+       169   284.05575          17445   5496           5621           6328           0              7.8439516e-12
+pair interaction: 1000 steps (pressure 1.773221e+00 N/m2)
+diffusion: 4137 steps
+       170   286.97429          17596   5538           5660           6398           0              7.9084045e-12
+pair interaction: 1000 steps (pressure 1.774385e+00 N/m2)
+diffusion: 4178 steps
+       171   289.88499          17729   5577           5699           6453           0              7.9723174e-12
+pair interaction: 1000 steps (pressure 1.771647e+00 N/m2)
+diffusion: 3661 steps
+       172   292.68133          17885   5623           5753           6509           0              8.035656e-12 
+pair interaction: 1000 steps (pressure 1.775434e+00 N/m2)
+diffusion: 3470 steps
+       173   295.45974          18040   5659           5806           6575           0              8.098488e-12 
+pair interaction: 1000 steps (pressure 1.783045e+00 N/m2)
+diffusion: 4219 steps
+       174   298.42824          18191   5706           5852           6633           0              8.1607535e-12
+pair interaction: 1000 steps (pressure 1.774425e+00 N/m2)
+diffusion: 3822 steps
+       175   301.3275           18346   5761           5891           6694           0              8.2225143e-12
+pair interaction: 1000 steps (pressure 1.765537e+00 N/m2)
+diffusion: 3431 steps
+       176   304.12622          18535   5823           5947           6765           0              8.283766e-12 
+pair interaction: 1000 steps (pressure 1.758848e+00 N/m2)
+diffusion: 4267 steps
+       177   307.08463          18701   5873           6001           6827           0              8.3444805e-12
+pair interaction: 1000 steps (pressure 1.748677e+00 N/m2)
+diffusion: 3906 steps
+       178   309.99889          18855   5914           6045           6896           0              8.4046453e-12
+pair interaction: 1000 steps (pressure 1.754176e+00 N/m2)
+diffusion: 3646 steps
+       179   312.88167          19006   5958           6080           6968           0              8.4643315e-12
+pair interaction: 1000 steps (pressure 1.758624e+00 N/m2)
+diffusion: 3698 steps
+       180   315.84384          19155   6000           6124           7031           0              8.523529e-12 
+pair interaction: 1000 steps (pressure 1.759804e+00 N/m2)
+diffusion: 3941 steps
+       181   318.80993          19284   6043           6160           7081           0              8.5822004e-12
+pair interaction: 1000 steps (pressure 1.763964e+00 N/m2)
+diffusion: 3736 steps
+       182   321.78185          19431   6100           6196           7135           0              8.6403619e-12
+pair interaction: 1000 steps (pressure 1.764563e+00 N/m2)
+diffusion: 3514 steps
+       183   324.68933          19590   6151           6248           7191           0              8.6980038e-12
+pair interaction: 1000 steps (pressure 1.769237e+00 N/m2)
+diffusion: 3384 steps
+       184   327.57391          19717   6188           6292           7237           0              8.7551509e-12
+pair interaction: 1000 steps (pressure 1.774765e+00 N/m2)
+diffusion: 3918 steps
+       185   330.58255          19867   6234           6340           7293           0              8.8118165e-12
+pair interaction: 1000 steps (pressure 1.773614e+00 N/m2)
+diffusion: 3431 steps
+       186   333.51459          20004   6262           6383           7359           0              8.8680035e-12
+pair interaction: 1000 steps (pressure 1.777210e+00 N/m2)
+diffusion: 3636 steps
+       187   336.4784           20133   6308           6413           7412           0              8.9236984e-12
+pair interaction: 1000 steps (pressure 1.774412e+00 N/m2)
+diffusion: 3757 steps
+       188   339.47982          20284   6344           6460           7480           0              8.9789132e-12
+pair interaction: 1000 steps (pressure 1.765482e+00 N/m2)
+diffusion: 3805 steps
+       189   342.50284          20410   6377           6498           7535           0              9.0336265e-12
+pair interaction: 1000 steps (pressure 1.769392e+00 N/m2)
+diffusion: 3064 steps
+       190   345.46341          20556   6417           6542           7597           0              9.0878864e-12
+pair interaction: 1000 steps (pressure 1.762271e+00 N/m2)
+diffusion: 3450 steps
+       191   348.46151          20704   6461           6591           7652           0              9.1416765e-12
+pair interaction: 1000 steps (pressure 1.756220e+00 N/m2)
+diffusion: 3585 steps
+       192   351.53245          20850   6506           6638           7706           0              9.1950008e-12
+pair interaction: 1000 steps (pressure 1.750808e+00 N/m2)
+diffusion: 3550 steps
+       193   354.55705          21009   6556           6683           7770           0              9.2478566e-12
+pair interaction: 1000 steps (pressure 1.735960e+00 N/m2)
+diffusion: 3390 steps
+       194   357.59886          21169   6597           6736           7836           0              9.3002302e-12
+pair interaction: 1000 steps (pressure 1.735404e+00 N/m2)
+diffusion: 3453 steps
+       195   360.63216          21325   6644           6780           7901           0              9.3522281e-12
+pair interaction: 1000 steps (pressure 1.729210e+00 N/m2)
+diffusion: 3428 steps
+       196   363.67872          21461   6685           6819           7957           0              9.4037445e-12
+pair interaction: 1000 steps (pressure 1.728224e+00 N/m2)
+diffusion: 3365 steps
+       197   366.72932          21623   6732           6872           8019           0              9.4548202e-12
+pair interaction: 1000 steps (pressure 1.731111e+00 N/m2)
+diffusion: 3227 steps
+       198   369.76585          21749   6773           6902           8074           0              9.5054636e-12
+pair interaction: 1000 steps (pressure 1.733994e+00 N/m2)
+diffusion: 3264 steps
+       199   372.83418          21883   6815           6942           8126           0              9.5556836e-12
+pair interaction: 1000 steps (pressure 1.733250e+00 N/m2)
+diffusion: 3371 steps
+       200   375.97797          22022   6863           6979           8180           0              9.6054804e-12
+pair interaction: 1000 steps (pressure 1.717762e+00 N/m2)
+diffusion: 3631 steps
+       201   379.13024          22168   6907           7021           8240           0              9.6548218e-12
+pair interaction: 1000 steps (pressure 1.710986e+00 N/m2)
+diffusion: 3721 steps
+       202   382.33227          22303   6939           7068           8296           0              9.703742e-12 
+pair interaction: 1000 steps (pressure 1.703977e+00 N/m2)
+diffusion: 3355 steps
+       203   385.4344           22455   6988           7121           8346           0              9.7522435e-12
+pair interaction: 1000 steps (pressure 1.696849e+00 N/m2)
+diffusion: 3414 steps
+       204   388.56025          22608   7034           7161           8413           0              9.8003381e-12
+pair interaction: 1000 steps (pressure 1.690233e+00 N/m2)
+diffusion: 3279 steps
+       205   391.68625          22756   7077           7199           8480           0              9.8480448e-12
+pair interaction: 1000 steps (pressure 1.687432e+00 N/m2)
+diffusion: 3498 steps
+       206   394.88809          22901   7115           7244           8542           0              9.8953671e-12
+pair interaction: 1000 steps (pressure 1.680428e+00 N/m2)
+diffusion: 3214 steps
+       207   398.03581          23046   7163           7289           8594           0              9.9423444e-12
+pair interaction: 1000 steps (pressure 1.672159e+00 N/m2)
+diffusion: 3381 steps
+       208   401.22517          23172   7205           7323           8644           0              9.9889308e-12
+pair interaction: 1000 steps (pressure 1.673856e+00 N/m2)
+diffusion: 3042 steps
+       209   404.37014          23292   7234           7358           8700           0              1.0035151e-11
+pair interaction: 1000 steps (pressure 1.673461e+00 N/m2)
+diffusion: 3184 steps
+       210   407.64743          23442   7296           7393           8753           0              1.0080996e-11
+pair interaction: 1000 steps (pressure 1.662594e+00 N/m2)
+diffusion: 3312 steps
+       211   410.85703          23577   7341           7431           8805           0              1.0126468e-11
+pair interaction: 1000 steps (pressure 1.662068e+00 N/m2)
+diffusion: 3470 steps
+       212   414.12865          23718   7384           7467           8867           0              1.0171566e-11
+pair interaction: 1000 steps (pressure 1.663666e+00 N/m2)
+diffusion: 3005 steps
+       213   417.28613          23856   7425           7512           8919           0              1.0216255e-11
+pair interaction: 1000 steps (pressure 1.663374e+00 N/m2)
+diffusion: 3259 steps
+       214   420.51616          23990   7464           7547           8979           0              1.0260565e-11
+pair interaction: 1000 steps (pressure 1.655143e+00 N/m2)
+diffusion: 3292 steps
+       215   423.74707          24131   7507           7589           9035           0              1.0304503e-11
+pair interaction: 1000 steps (pressure 1.652685e+00 N/m2)
+diffusion: 3271 steps
+       216   426.98681          24289   7557           7634           9098           0              1.0348073e-11
+pair interaction: 1000 steps (pressure 1.643298e+00 N/m2)
+diffusion: 3411 steps
+       217   430.26861          24444   7616           7682           9146           0              1.0391279e-11
+pair interaction: 1000 steps (pressure 1.644764e+00 N/m2)
+diffusion: 3061 steps
+       218   433.49995          24580   7662           7716           9202           0              1.0434136e-11
+pair interaction: 1000 steps (pressure 1.637410e+00 N/m2)
+diffusion: 3579 steps
+       219   436.85335          24723   7708           7756           9259           0              1.047664e-11 
+pair interaction: 1000 steps (pressure 1.628334e+00 N/m2)
+diffusion: 3186 steps
+       220   440.19761          24851   7737           7797           9317           0              1.0518819e-11
+pair interaction: 1000 steps (pressure 1.623529e+00 N/m2)
+diffusion: 3354 steps
+       221   443.5211           24999   7786           7830           9383           0              1.0560641e-11
+pair interaction: 1000 steps (pressure 1.612077e+00 N/m2)
+diffusion: 3570 steps
+       222   446.93288          25157   7836           7873           9448           0              1.0602135e-11
+pair interaction: 1000 steps (pressure 1.605071e+00 N/m2)
+diffusion: 3573 steps
+       223   450.32975          25297   7875           7915           9507           0              1.0643275e-11
+pair interaction: 1000 steps (pressure 1.592739e+00 N/m2)
+diffusion: 3111 steps
+       224   453.64792          25429   7916           7967           9546           0              1.0684139e-11
+pair interaction: 1000 steps (pressure 1.584411e+00 N/m2)
+diffusion: 3439 steps
+       225   457.02028          25569   7956           8010           9603           0              1.0724694e-11
+pair interaction: 1000 steps (pressure 1.578377e+00 N/m2)
+diffusion: 3486 steps
+       226   460.46391          25726   7992           8061           9673           0              1.0764852e-11
+pair interaction: 1000 steps (pressure 1.574065e+00 N/m2)
+diffusion: 3252 steps
+       227   463.88334          25852   8030           8098           9724           0              1.0804767e-11
+pair interaction: 1000 steps (pressure 1.567425e+00 N/m2)
+diffusion: 2650 steps
+       228   467.18969          26009   8072           8147           9790           0              1.0844414e-11
+pair interaction: 1000 steps (pressure 1.556966e+00 N/m2)
+diffusion: 3277 steps
+       229   470.6553           26155   8109           8200           9846           0              1.0883725e-11
+pair interaction: 1000 steps (pressure 1.551119e+00 N/m2)
+diffusion: 3352 steps
+       230   474.26342          26308   8153           8243           9912           0              1.0922763e-11
+pair interaction: 1000 steps (pressure 1.542322e+00 N/m2)
+diffusion: 3394 steps
+       231   477.74265          26445   8205           8274           9966           0              1.0961517e-11
+pair interaction: 1000 steps (pressure 1.532349e+00 N/m2)
+diffusion: 3296 steps
+       232   481.26948          26595   8249           8321           10025          0              1.099997e-11 
+pair interaction: 1000 steps (pressure 1.522106e+00 N/m2)
+diffusion: 3030 steps
+       233   484.72186          26737   8288           8370           10079          0              1.1038081e-11
+pair interaction: 1000 steps (pressure 1.517352e+00 N/m2)
+diffusion: 3349 steps
+       234   488.22105          26881   8333           8414           10134          0              1.1075953e-11
+pair interaction: 1000 steps (pressure 1.511549e+00 N/m2)
+diffusion: 3231 steps
+       235   491.72016          27012   8374           8448           10190          0              1.1113504e-11
+pair interaction: 1000 steps (pressure 1.503913e+00 N/m2)
+diffusion: 3291 steps
+       236   495.25018          27171   8433           8496           10242          0              1.1150788e-11
+pair interaction: 1000 steps (pressure 1.502887e+00 N/m2)
+diffusion: 3294 steps
+       237   498.77848          27309   8477           8535           10297          0              1.1187798e-11
+pair interaction: 1000 steps (pressure 1.503059e+00 N/m2)
+diffusion: 3334 steps
+       238   502.3463           27448   8522           8572           10354          0              1.1224483e-11
+pair interaction: 1000 steps (pressure 1.496130e+00 N/m2)
+diffusion: 3314 steps
+       239   505.91348          27598   8574           8610           10414          0              1.1260934e-11
+pair interaction: 1000 steps (pressure 1.487072e+00 N/m2)
+diffusion: 3330 steps
+       240   509.59483          27730   8610           8660           10460          0              1.1297097e-11
+pair interaction: 1000 steps (pressure 1.481316e+00 N/m2)
+diffusion: 2882 steps
+       241   513.11268          27860   8658           8701           10501          0              1.133294e-11 
+pair interaction: 1000 steps (pressure 1.472920e+00 N/m2)
+diffusion: 3311 steps
+       242   516.78138          28006   8705           8743           10558          0              1.1368546e-11
+pair interaction: 1000 steps (pressure 1.461735e+00 N/m2)
+diffusion: 3271 steps
+       243   520.37431          28150   8752           8786           10612          0              1.1403862e-11
+pair interaction: 1000 steps (pressure 1.456100e+00 N/m2)
+diffusion: 3344 steps
+       244   523.9614           28288   8795           8826           10667          0              1.1438923e-11
+pair interaction: 1000 steps (pressure 1.457944e+00 N/m2)
+diffusion: 3318 steps
+       245   527.57715          28425   8837           8867           10721          0              1.1473651e-11
+pair interaction: 1000 steps (pressure 1.450324e+00 N/m2)
+diffusion: 3791 steps
+       246   531.31734          28596   8903           8915           10778          0              1.1508151e-11
+pair interaction: 1000 steps (pressure 1.445361e+00 N/m2)
+diffusion: 3199 steps
+       247   534.93152          28741   8950           8961           10830          0              1.1542443e-11
+pair interaction: 1000 steps (pressure 1.433660e+00 N/m2)
+diffusion: 3426 steps
+       248   538.61702          28882   8985           9002           10895          0              1.1576432e-11
+pair interaction: 1000 steps (pressure 1.420855e+00 N/m2)
+diffusion: 3302 steps
+       249   542.27268          29034   9025           9053           10956          0              1.1610186e-11
+pair interaction: 1000 steps (pressure 1.412035e+00 N/m2)
+diffusion: 3419 steps
+       250   546.10417          29163   9064           9096           11003          0              1.1643712e-11
+pair interaction: 1000 steps (pressure 1.408451e+00 N/m2)
+diffusion: 3188 steps
+       251   549.80281          29305   9097           9138           11070          0              1.1677059e-11
+pair interaction: 1000 steps (pressure 1.406267e+00 N/m2)
+diffusion: 3784 steps
+       252   553.68977          29448   9138           9176           11134          0              1.1710194e-11
+pair interaction: 1000 steps (pressure 1.404720e+00 N/m2)
+diffusion: 3239 steps
+       253   557.40509          29587   9190           9210           11187          0              1.1743102e-11
+pair interaction: 1000 steps (pressure 1.403844e+00 N/m2)
+diffusion: 3378 steps
+       254   561.14145          29716   9230           9246           11240          0              1.1775765e-11
+pair interaction: 1000 steps (pressure 1.400657e+00 N/m2)
+diffusion: 3158 steps
+       255   564.8536           29866   9277           9290           11299          0              1.1808207e-11
+pair interaction: 1000 steps (pressure 1.393877e+00 N/m2)
+diffusion: 3546 steps
+       256   568.64971          30006   9319           9326           11361          0              1.1840432e-11
+pair interaction: 1000 steps (pressure 1.394579e+00 N/m2)
+diffusion: 3051 steps
+       257   572.37174          30153   9364           9374           11415          0              1.1872414e-11
+pair interaction: 1000 steps (pressure 1.391643e+00 N/m2)
+diffusion: 3557 steps
+       258   576.25411          30303   9402           9422           11479          0              1.1904208e-11
+pair interaction: 1000 steps (pressure 1.382814e+00 N/m2)
+diffusion: 3567 steps
+       259   580.15821          30444   9446           9458           11540          0              1.1935776e-11
+pair interaction: 1000 steps (pressure 1.374301e+00 N/m2)
+diffusion: 3418 steps
+       260   584.10963          30593   9494           9495           11604          0              1.1967143e-11
+pair interaction: 1000 steps (pressure 1.367844e+00 N/m2)
+diffusion: 3481 steps
+       261   587.97435          30752   9540           9539           11673          0              1.1998301e-11
+pair interaction: 1000 steps (pressure 1.362699e+00 N/m2)
+diffusion: 3346 steps
+       262   591.89078          30905   9580           9589           11736          0              1.2029231e-11
+pair interaction: 1000 steps (pressure 1.359620e+00 N/m2)
+diffusion: 3148 steps
+       263   595.71802          31031   9616           9627           11788          0              1.2060012e-11
+pair interaction: 1000 steps (pressure 1.357264e+00 N/m2)
+diffusion: 3435 steps
+       264   599.61178          31166   9654           9671           11841          0              1.2090578e-11
+pair interaction: 1000 steps (pressure 1.360713e+00 N/m2)
+diffusion: 3427 steps
+       265   603.49701          31297   9687           9709           11901          0              1.2120958e-11
+pair interaction: 1000 steps (pressure 1.354530e+00 N/m2)
+diffusion: 3232 steps
+       266   607.36437          31459   9737           9748           11974          0              1.2151147e-11
+pair interaction: 1000 steps (pressure 1.347836e+00 N/m2)
+diffusion: 3430 steps
+       267   611.27325          31608   9787           9802           12019          0              1.2181182e-11
+pair interaction: 1000 steps (pressure 1.344728e+00 N/m2)
+diffusion: 3644 steps
+       268   615.2477           31733   9832           9839           12062          0              1.2210997e-11
+pair interaction: 1000 steps (pressure 1.342501e+00 N/m2)
+diffusion: 3539 steps
+       269   619.20541          31850   9865           9875           12110          0              1.22406e-11  
+pair interaction: 1000 steps (pressure 1.340691e+00 N/m2)
+diffusion: 3671 steps
+       270   623.2613           32001   9918           9907           12176          0              1.2270064e-11
+pair interaction: 1000 steps (pressure 1.335812e+00 N/m2)
+diffusion: 3595 steps
+       271   627.22894          32138   9958           9942           12238          0              1.2299304e-11
+pair interaction: 1000 steps (pressure 1.331021e+00 N/m2)
+diffusion: 3725 steps
+       272   631.28661          32269   9994           9978           12297          0              1.2328365e-11
+pair interaction: 1000 steps (pressure 1.328024e+00 N/m2)
+diffusion: 3285 steps
+       273   635.21358          32437   10038          10035          12364          0              1.2357298e-11
+pair interaction: 1000 steps (pressure 1.317139e+00 N/m2)
+diffusion: 3401 steps
+       274   639.19215          32597   10084          10086          12427          0              1.2386035e-11
+pair interaction: 1000 steps (pressure 1.309730e+00 N/m2)
+diffusion: 3532 steps
+       275   643.24014          32745   10125          10129          12491          0              1.2414612e-11
+pair interaction: 1000 steps (pressure 1.308694e+00 N/m2)
+diffusion: 3644 steps
+       276   647.28218          32895   10172          10178          12545          0              1.2443066e-11
+pair interaction: 1000 steps (pressure 1.309299e+00 N/m2)
+diffusion: 3549 steps
+       277   651.31799          33037   10224          10215          12598          0              1.247132e-11 
+pair interaction: 1000 steps (pressure 1.310062e+00 N/m2)
+diffusion: 3347 steps
+       278   655.38573          33180   10273          10247          12660          0              1.2499443e-11
+pair interaction: 1000 steps (pressure 1.308311e+00 N/m2)
+diffusion: 3423 steps
+       279   659.4362           33344   10318          10301          12725          0              1.2527446e-11
+pair interaction: 1000 steps (pressure 1.301163e+00 N/m2)
+diffusion: 3725 steps
+       280   663.64331          33484   10356          10344          12784          0              1.2555252e-11
+pair interaction: 1000 steps (pressure 1.287930e+00 N/m2)
+diffusion: 3650 steps
+       281   667.75497          33637   10405          10392          12840          0              1.2582903e-11
+pair interaction: 1000 steps (pressure 1.286468e+00 N/m2)
+diffusion: 3691 steps
+       282   671.96248          33782   10451          10426          12905          0              1.2610404e-11
+pair interaction: 1000 steps (pressure 1.283540e+00 N/m2)
+diffusion: 3454 steps
+       283   676.03427          33934   10498          10471          12965          0              1.2637764e-11
+pair interaction: 1000 steps (pressure 1.283043e+00 N/m2)
+diffusion: 3338 steps
+       284   680.10258          34091   10537          10531          13023          0              1.2664892e-11
+pair interaction: 1000 steps (pressure 1.278052e+00 N/m2)
+diffusion: 3447 steps
+       285   684.20999          34242   10582          10576          13084          0              1.2691876e-11
+pair interaction: 1000 steps (pressure 1.274199e+00 N/m2)
+diffusion: 3278 steps
+       286   688.2867           34387   10625          10629          13133          0              1.2718745e-11
+pair interaction: 1000 steps (pressure 1.273471e+00 N/m2)
+diffusion: 3596 steps
+       287   692.44752          34537   10665          10681          13191          0              1.2745436e-11
+pair interaction: 1000 steps (pressure 1.265045e+00 N/m2)
+diffusion: 3836 steps
+       288   696.70556          34701   10721          10723          13257          0              1.2771982e-11
+pair interaction: 1000 steps (pressure 1.255950e+00 N/m2)
+diffusion: 3733 steps
+       289   700.93377          34847   10769          10762          13316          0              1.2798405e-11
+pair interaction: 1000 steps (pressure 1.250728e+00 N/m2)
+diffusion: 3639 steps
+       290   705.23266          35007   10820          10807          13380          0              1.2824644e-11
+pair interaction: 1000 steps (pressure 1.242527e+00 N/m2)
+diffusion: 3576 steps
+       291   709.46964          35186   10881          10855          13450          0              1.2850783e-11
+pair interaction: 1000 steps (pressure 1.239851e+00 N/m2)
+diffusion: 3638 steps
+       292   713.75379          35342   10925          10900          13517          0              1.2876748e-11
+pair interaction: 1000 steps (pressure 1.243055e+00 N/m2)
+diffusion: 3487 steps
+       293   717.97676          35471   10959          10933          13579          0              1.2902609e-11
+pair interaction: 1000 steps (pressure 1.240027e+00 N/m2)
+diffusion: 3661 steps
+       294   722.26769          35639   11019          10977          13643          0              1.2928334e-11
+pair interaction: 1000 steps (pressure 1.238968e+00 N/m2)
+diffusion: 3654 steps
+       295   726.562            35791   11068          11026          13697          0              1.2953863e-11
+pair interaction: 1000 steps (pressure 1.232570e+00 N/m2)
+diffusion: 3668 steps
+       296   730.86947          35937   11113          11072          13752          0              1.2979306e-11
+pair interaction: 1000 steps (pressure 1.232256e+00 N/m2)
+diffusion: 3785 steps
+       297   735.24484          36067   11145          11120          13802          0              1.3004625e-11
+pair interaction: 1000 steps (pressure 1.229185e+00 N/m2)
+diffusion: 3119 steps
+       298   739.47222          36196   11188          11157          13851          0              1.302983e-11 
+pair interaction: 1000 steps (pressure 1.228127e+00 N/m2)
+diffusion: 3420 steps
+       299   743.77886          36352   11250          11206          13896          0              1.3054938e-11
+pair interaction: 1000 steps (pressure 1.229193e+00 N/m2)
+diffusion: 3540 steps
+       300   748.23451          36527   11303          11261          13963          0              1.3079956e-11
+pair interaction: 1000 steps (pressure 1.222390e+00 N/m2)
+diffusion: 3774 steps
+       301   752.69862          36672   11338          11304          14030          0              1.3104867e-11
+pair interaction: 1000 steps (pressure 1.220913e+00 N/m2)
+diffusion: 3309 steps
+       302   757.01379          36809   11368          11346          14095          0              1.3129678e-11
+pair interaction: 1000 steps (pressure 1.219393e+00 N/m2)
+diffusion: 3648 steps
+       303   761.41912          36957   11410          11395          14152          0              1.3154363e-11
+pair interaction: 1000 steps (pressure 1.226013e+00 N/m2)
+diffusion: 3620 steps
+       304   765.83262          37098   11456          11433          14209          0              1.3178985e-11
+pair interaction: 1000 steps (pressure 1.230146e+00 N/m2)
+diffusion: 3473 steps
+       305   770.22856          37240   11506          11474          14260          0              1.3203502e-11
+pair interaction: 1000 steps (pressure 1.229261e+00 N/m2)
+diffusion: 3509 steps
+       306   774.61442          37402   11548          11523          14331          0              1.3227849e-11
+pair interaction: 1000 steps (pressure 1.226690e+00 N/m2)
+diffusion: 3756 steps
+       307   779.08525          37540   11584          11569          14387          0              1.3252149e-11
+pair interaction: 1000 steps (pressure 1.229393e+00 N/m2)
+diffusion: 3775 steps
+       308   783.56341          37685   11629          11616          14440          0              1.3276232e-11
+pair interaction: 1000 steps (pressure 1.230960e+00 N/m2)
+diffusion: 3878 steps
+       309   788.06966          37824   11672          11654          14498          0              1.3300259e-11
+pair interaction: 1000 steps (pressure 1.224289e+00 N/m2)
+diffusion: 3522 steps
+       310   792.59505          37970   11709          11706          14555          0              1.3324239e-11
+pair interaction: 1000 steps (pressure 1.218412e+00 N/m2)
+diffusion: 3671 steps
+       311   797.0726           38129   11750          11757          14622          0              1.3348077e-11
+pair interaction: 1000 steps (pressure 1.209583e+00 N/m2)
+diffusion: 3884 steps
+       312   801.72895          38281   11810          11793          14678          0              1.3371829e-11
+pair interaction: 1000 steps (pressure 1.209755e+00 N/m2)
+diffusion: 3610 steps
+       313   806.2348           38447   11857          11848          14742          0              1.3395452e-11
+pair interaction: 1000 steps (pressure 1.209036e+00 N/m2)
+diffusion: 3340 steps
+       314   810.69988          38602   11900          11898          14804          0              1.3418993e-11
+pair interaction: 1000 steps (pressure 1.206696e+00 N/m2)
+diffusion: 3499 steps
+       315   815.25728          38749   11943          11937          14869          0              1.3442484e-11
+pair interaction: 1000 steps (pressure 1.205172e+00 N/m2)
+diffusion: 3670 steps
+       316   819.83735          38910   11991          11978          14941          0              1.3465947e-11
+pair interaction: 1000 steps (pressure 1.207051e+00 N/m2)
+diffusion: 3667 steps
+       317   824.47307          39068   12043          12025          15000          0              1.3489247e-11
+pair interaction: 1000 steps (pressure 1.203042e+00 N/m2)
+diffusion: 3575 steps
+       318   829.07332          39230   12109          12062          15059          0              1.351242e-11 
+pair interaction: 1000 steps (pressure 1.203108e+00 N/m2)
+diffusion: 3754 steps
+       319   833.68749          39379   12147          12106          15126          0              1.3535535e-11
+pair interaction: 1000 steps (pressure 1.199393e+00 N/m2)
+diffusion: 3775 steps
+       320   838.44419          39538   12199          12153          15186          0              1.3558576e-11
+pair interaction: 1000 steps (pressure 1.200054e+00 N/m2)
+diffusion: 4065 steps
+       321   843.15773          39705   12247          12209          15249          0              1.3581611e-11
+pair interaction: 1000 steps (pressure 1.207004e+00 N/m2)
+diffusion: 3815 steps
+       322   847.89559          39852   12300          12250          15302          0              1.3604539e-11
+pair interaction: 1000 steps (pressure 1.206831e+00 N/m2)
+diffusion: 3732 steps
+       323   852.56043          40021   12344          12309          15368          0              1.3627319e-11
+pair interaction: 1000 steps (pressure 1.207480e+00 N/m2)
+diffusion: 3858 steps
+       324   857.27142          40166   12398          12349          15419          0              1.3650074e-11
+pair interaction: 1000 steps (pressure 1.204972e+00 N/m2)
+diffusion: 3663 steps
+       325   861.97707          40321   12458          12403          15460          0              1.3672777e-11
+pair interaction: 1000 steps (pressure 1.204028e+00 N/m2)
+diffusion: 3726 steps
+       326   866.72266          40485   12507          12451          15527          0              1.3695388e-11
+pair interaction: 1000 steps (pressure 1.201222e+00 N/m2)
+diffusion: 3814 steps
+       327   871.52648          40638   12555          12504          15579          0              1.3717925e-11
+pair interaction: 1000 steps (pressure 1.192639e+00 N/m2)
+diffusion: 3690 steps
+       328   876.27724          40812   12598          12560          15654          0              1.3740422e-11
+pair interaction: 1000 steps (pressure 1.195165e+00 N/m2)
+diffusion: 4024 steps
+       329   881.12844          40964   12641          12606          15717          0              1.3762826e-11
+pair interaction: 1000 steps (pressure 1.194126e+00 N/m2)
+diffusion: 3627 steps
+       330   885.97229          41112   12691          12641          15780          0              1.3785154e-11
+pair interaction: 1000 steps (pressure 1.193717e+00 N/m2)
+diffusion: 4051 steps
+       331   890.85534          41270   12744          12683          15843          0              1.3807355e-11
+pair interaction: 1000 steps (pressure 1.194373e+00 N/m2)
+diffusion: 4275 steps
+       332   895.73651          41412   12795          12726          15891          0              1.3829473e-11
+pair interaction: 1000 steps (pressure 1.191098e+00 N/m2)
+diffusion: 3899 steps
+       333   900.56857          41571   12835          12775          15961          0              1.38516e-11  
+pair interaction: 1000 steps (pressure 1.189017e+00 N/m2)
+diffusion: 3874 steps
+       334   905.39297          41732   12888          12819          16025          0              1.3873693e-11
+pair interaction: 1000 steps (pressure 1.185118e+00 N/m2)
+diffusion: 3786 steps
+       335   910.20869          41887   12945          12868          16074          0              1.3895706e-11
+pair interaction: 1000 steps (pressure 1.185351e+00 N/m2)
+diffusion: 3874 steps
+       336   915.06038          42042   12994          12914          16134          0              1.3917689e-11
+pair interaction: 1000 steps (pressure 1.187226e+00 N/m2)
+diffusion: 3839 steps
+       337   919.96696          42188   13043          12944          16201          0              1.3939632e-11
+pair interaction: 1000 steps (pressure 1.183297e+00 N/m2)
+diffusion: 3858 steps
+       338   924.84092          42357   13089          12989          16279          0              1.3961574e-11
+pair interaction: 1000 steps (pressure 1.182891e+00 N/m2)
+diffusion: 3792 steps
+       339   929.71542          42532   13149          13038          16345          0              1.3983436e-11
+pair interaction: 1000 steps (pressure 1.185554e+00 N/m2)
+diffusion: 3999 steps
+       340   934.75471          42680   13192          13082          16406          0              1.4005268e-11
+pair interaction: 1000 steps (pressure 1.181443e+00 N/m2)
+diffusion: 3974 steps
+       341   939.713            42843   13239          13134          16470          0              1.4027056e-11
+pair interaction: 1000 steps (pressure 1.182796e+00 N/m2)
+diffusion: 3983 steps
+       342   944.71009          42997   13283          13185          16528          1              1.4048794e-11
+pair interaction: 1000 steps (pressure 1.188883e+00 N/m2)
+diffusion: 3940 steps
+       343   949.71852          43144   13323          13228          16591          2              1.4070496e-11
+pair interaction: 1000 steps (pressure 1.186265e+00 N/m2)
+diffusion: 4217 steps
+       344   954.82893          43328   13376          13279          16670          3              1.4092148e-11
+pair interaction: 1000 steps (pressure 1.188421e+00 N/m2)
+diffusion: 3889 steps
+       345   960.07715          43502   13441          13319          16739          3              1.4113732e-11
+pair interaction: 1000 steps (pressure 1.186512e+00 N/m2)
+diffusion: 4011 steps
+       346   965.54985          43652   13495          13360          16793          4              1.4135331e-11
+pair interaction: 1000 steps (pressure 1.188896e+00 N/m2)
+diffusion: 4145 steps
+       347   971.05064          43817   13554          13401          16858          4              1.4156814e-11
+pair interaction: 1000 steps (pressure 1.194462e+00 N/m2)
+diffusion: 4139 steps
+       348   976.61006          43971   13597          13459          16910          5              1.4178279e-11
+pair interaction: 1000 steps (pressure 1.198954e+00 N/m2)
+diffusion: 3783 steps
+       349   982.08067          44111   13646          13492          16967          6              1.4199748e-11
+pair interaction: 1000 steps (pressure 1.199869e+00 N/m2)
+diffusion: 3285 steps
+       350   987.55836          44280   13709          13541          17021          9              1.4221173e-11
+pair interaction: 1000 steps (pressure 1.199545e+00 N/m2)
+diffusion: 4116 steps
+       351   993.15679          44436   13766          13586          17072          12             1.4242547e-11
+pair interaction: 1000 steps (pressure 1.196872e+00 N/m2)
+diffusion: 3759 steps
+       352   998.69207          44577   13798          13634          17131          14             1.4263895e-11
+pair interaction: 1000 steps (pressure 1.200707e+00 N/m2)
+diffusion: 4032 steps
+       353   1004.2649          44736   13851          13673          17193          19             1.4285241e-11
+pair interaction: 1000 steps (pressure 1.205803e+00 N/m2)
+diffusion: 3874 steps
+       354   1009.8169          44901   13897          13726          17258          20             1.4306527e-11
+pair interaction: 1000 steps (pressure 1.206654e+00 N/m2)
+diffusion: 3988 steps
+       355   1015.3887          45050   13935          13776          17315          24             1.4327718e-11
+pair interaction: 1000 steps (pressure 1.208901e+00 N/m2)
+diffusion: 3925 steps
+       356   1020.971           45213   13980          13823          17385          25             1.4348906e-11
+pair interaction: 1000 steps (pressure 1.204347e+00 N/m2)
+diffusion: 3863 steps
+       357   1026.6694          45399   14044          13876          17449          30             1.4370106e-11
+pair interaction: 1000 steps (pressure 1.200921e+00 N/m2)
+diffusion: 4150 steps
+       358   1032.5148          45586   14098          13941          17515          32             1.4391291e-11
+pair interaction: 1000 steps (pressure 1.202815e+00 N/m2)
+diffusion: 3828 steps
+       359   1038.2467          45760   14147          13985          17591          37             1.4412432e-11
+pair interaction: 1000 steps (pressure 1.200170e+00 N/m2)
+diffusion: 4060 steps
+       360   1044.1885          45923   14195          14025          17664          39             1.4433532e-11
+pair interaction: 1000 steps (pressure 1.203028e+00 N/m2)
+diffusion: 3826 steps
+       361   1050.1679          46095   14243          14084          17721          47             1.4454592e-11
+pair interaction: 1000 steps (pressure 1.206775e+00 N/m2)
+diffusion: 4257 steps
+       362   1056.3523          46264   14293          14130          17787          54             1.4475571e-11
+pair interaction: 1000 steps (pressure 1.211742e+00 N/m2)
+diffusion: 3745 steps
+       363   1062.3372          46431   14337          14175          17857          62             1.4496588e-11
+pair interaction: 1000 steps (pressure 1.214164e+00 N/m2)
+diffusion: 3868 steps
+       364   1068.3445          46595   14388          14215          17922          70             1.4517625e-11
+pair interaction: 1000 steps (pressure 1.217263e+00 N/m2)
+diffusion: 3985 steps
+       365   1074.4246          46773   14440          14276          17974          83             1.4538593e-11
+pair interaction: 1000 steps (pressure 1.222158e+00 N/m2)
+diffusion: 3790 steps
+       366   1080.4207          46929   14481          14322          18027          99             1.4559529e-11
+pair interaction: 1000 steps (pressure 1.220330e+00 N/m2)
+diffusion: 4145 steps
+       367   1086.5488          47090   14533          14368          18080          109            1.4580469e-11
+pair interaction: 1000 steps (pressure 1.216291e+00 N/m2)
+diffusion: 3902 steps
+       368   1092.517           47254   14587          14408          18130          129            1.4601444e-11
+pair interaction: 1000 steps (pressure 1.215873e+00 N/m2)
+diffusion: 4194 steps
+       369   1098.3105          47431   14639          14451          18198          143            1.4622386e-11
+pair interaction: 1000 steps (pressure 1.209203e+00 N/m2)
+diffusion: 3879 steps
+       370   1104.1245          47616   14691          14501          18269          155            1.46433e-11  
+pair interaction: 1000 steps (pressure 1.206453e+00 N/m2)
+diffusion: 4268 steps
+       371   1109.9483          47776   14731          14552          18319          174            1.4664255e-11
+pair interaction: 1000 steps (pressure 1.208994e+00 N/m2)
+diffusion: 4161 steps
+       372   1115.8424          47943   14776          14587          18386          194            1.4685163e-11
+pair interaction: 1000 steps (pressure 1.212592e+00 N/m2)
+diffusion: 3876 steps
+       373   1121.6229          48116   14831          14623          18451          211            1.4706063e-11
+pair interaction: 1000 steps (pressure 1.211082e+00 N/m2)
+diffusion: 4072 steps
+       374   1127.5196          48291   14874          14666          18514          237            1.4726967e-11
+pair interaction: 1000 steps (pressure 1.212123e+00 N/m2)
+diffusion: 3908 steps
+       375   1133.3789          48465   14917          14716          18571          261            1.4747908e-11
+pair interaction: 1000 steps (pressure 1.211566e+00 N/m2)
+diffusion: 4237 steps
+       376   1139.5728          48638   14957          14752          18639          290            1.4768866e-11
+pair interaction: 1000 steps (pressure 1.210435e+00 N/m2)
+diffusion: 4231 steps
+       377   1145.708           48824   15006          14808          18698          312            1.4789811e-11
+pair interaction: 1000 steps (pressure 1.208395e+00 N/m2)
+diffusion: 4008 steps
+       378   1151.8176          48983   15047          14833          18764          339            1.4810733e-11
+pair interaction: 1000 steps (pressure 1.207632e+00 N/m2)
+diffusion: 4248 steps
+       379   1158.009           49150   15095          14859          18815          381            1.4831639e-11
+pair interaction: 1000 steps (pressure 1.215847e+00 N/m2)
+diffusion: 4089 steps
+       380   1164.3292          49302   15123          14906          18857          416            1.4852522e-11
+pair interaction: 1000 steps (pressure 1.218627e+00 N/m2)
+diffusion: 3725 steps
+       381   1170.4289          49468   15159          14934          18925          450            1.4873438e-11
+pair interaction: 1000 steps (pressure 1.216694e+00 N/m2)
+diffusion: 4199 steps
+       382   1176.6955          49639   15218          14959          18981          481            1.4894345e-11
+pair interaction: 1000 steps (pressure 1.208523e+00 N/m2)
+diffusion: 4279 steps
+       383   1182.9479          49813   15254          15009          19034          516            1.4915273e-11
+pair interaction: 1000 steps (pressure 1.210282e+00 N/m2)
+diffusion: 4345 steps
+       384   1189.2339          49981   15290          15044          19099          548            1.4936236e-11
+pair interaction: 1000 steps (pressure 1.216216e+00 N/m2)
+diffusion: 4055 steps
+       385   1195.5319          50149   15332          15067          19158          592            1.495725e-11 
+pair interaction: 1000 steps (pressure 1.215283e+00 N/m2)
+diffusion: 4544 steps
+       386   1201.9806          50327   15378          15108          19220          621            1.4978219e-11
+pair interaction: 1000 steps (pressure 1.219973e+00 N/m2)
+diffusion: 4154 steps
+       387   1208.3854          50479   15406          15133          19266          674            1.4999211e-11
+pair interaction: 1000 steps (pressure 1.219059e+00 N/m2)
+diffusion: 4367 steps
+       388   1214.9548          50652   15433          15167          19334          718            1.5020276e-11
+pair interaction: 1000 steps (pressure 1.218247e+00 N/m2)
+diffusion: 4052 steps
+       389   1221.4151          50807   15473          15190          19382          762            1.5041311e-11
+pair interaction: 1000 steps (pressure 1.219687e+00 N/m2)
+diffusion: 4366 steps
+       390   1228.1877          50997   15508          15232          19453          804            1.5062447e-11
+pair interaction: 1000 steps (pressure 1.219574e+00 N/m2)
+diffusion: 4108 steps
+       391   1234.754           51159   15541          15269          19507          842            1.5083591e-11
+pair interaction: 1000 steps (pressure 1.220395e+00 N/m2)
+diffusion: 4243 steps
+       392   1241.3513          51344   15572          15307          19569          896            1.5104783e-11
+pair interaction: 1000 steps (pressure 1.216545e+00 N/m2)
+diffusion: 4181 steps
+       393   1247.9927          51519   15581          15345          19642          951            1.5126023e-11
+pair interaction: 1000 steps (pressure 1.215531e+00 N/m2)
+diffusion: 4428 steps
+       394   1254.7654          51691   15604          15376          19713          998            1.5147343e-11
+pair interaction: 1000 steps (pressure 1.215323e+00 N/m2)
+diffusion: 4122 steps
+       395   1261.5139          51858   15646          15411          19751          1050           1.5168659e-11
+pair interaction: 1000 steps (pressure 1.218171e+00 N/m2)
+diffusion: 4219 steps
+       396   1268.2329          52032   15668          15425          19815          1124           1.5189994e-11
+pair interaction: 1000 steps (pressure 1.217329e+00 N/m2)
+diffusion: 4322 steps
+       397   1274.9928          52213   15697          15463          19860          1193           1.5211353e-11
+pair interaction: 1000 steps (pressure 1.215886e+00 N/m2)
+diffusion: 4555 steps
+       398   1281.8921          52397   15729          15487          19914          1267           1.5232737e-11
+pair interaction: 1000 steps (pressure 1.219493e+00 N/m2)
+diffusion: 4338 steps
+       399   1288.7498          52566   15746          15518          19964          1338           1.5254163e-11
+pair interaction: 1000 steps (pressure 1.219235e+00 N/m2)
+diffusion: 4453 steps
+       400   1295.7788          52745   15780          15555          20009          1401           1.5275647e-11
+Loop time of 1295.79 on 32 procs for 400 steps with 52745 atoms
+
+64.7% CPU use with 32 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 31.252     | 72.607     | 142.43     | 383.0 |  5.60
+Neigh   | 3.0274     | 7.037      | 14.31      | 112.2 |  0.54
+Comm    | 121.2      | 540.77     | 933.34     |1132.8 | 41.73
+Output  | 2.9337     | 2.9351     | 2.9364     |   0.1 |  0.23
+Modify  | 284.67     | 640.05     | 1018.6     | 965.1 | 49.39
+Other   |            | 32.39      |            |       |  2.50
+
+Nlocal:        1648.28 ave        3325 max         749 min
+Histogram: 7 4 5 6 2 2 3 1 0 2
+Nghost:        2022.56 ave        3036 max        1337 min
+Histogram: 2 6 6 3 5 3 5 0 0 2
+Neighs:        10051.6 ave       20164 max        4674 min
+Histogram: 6 5 7 5 1 0 3 2 1 2
+
+Total # of neighbors = 321650
+Ave neighs/atom = 6.0982084
+Neighbor list builds = 4520
+Dangerous builds = 127
+Total wall time: 0:21:37
+end at Thu Aug 14 00:58:54 CST 2025
+========end=======================
+End at 00:58:54.438

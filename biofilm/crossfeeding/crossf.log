@@ -1,0 +1,460 @@
+eno1
+------------------------------------------------------
+Job is running on:node002,node003,node004,node005
+------------------------------------------------------
+PBS: Start at Thu Aug 7 01:19:52 CST 2025
+PBS: Job name is hetero
+PBS: Job id is 2348.multiscale
+PBS: qsub is running on multiscale
+PBS: Current working directory is /home/ray/biofilm/project/crossfeeding
+PBS: Originating queue is workq
+PBS: Executing queue is workq
+PBS: Execution mode is PBS_BATCH
+PBS: Node file is /var/spool/pbs/aux/2348.multiscale
+PBS: Current home directory is /home/ray
+PBS: SHELL = /bin/bash
+------------------------------------------------------
+=======start running==============
+LAMMPS (23 Jun 2022 - Update 4)
+  using 1 OpenMP thread(s) per MPI task
+using multi-threaded neighbor list subroutines
+Reading data file ...
+  orthogonal box = (0 0 0) to (0.0003 0.0003 0.0003)
+  8 by 8 by 1 MPI processor grid
+  reading atoms ...
+  1000 atoms
+  read_data CPU = 0.045 seconds
+500 atoms in group CROSS1
+500 atoms in group CROSS2
+0 atoms in group EPS
+0 atoms in group dead
+No /omp style for force computation currently active
+No /omp style for force computation currently active
+No /omp style for force computation currently active
+WARNING: Replacing a fix, but new group != old group (../modify.cpp:924)
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+Last active /omp style is pair_style gran/hooke/history/omp
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 2.5e-06
+  ghost atom cutoff = 2.5e-06
+  binsize = 1.25e-06, bins = 240 240 240
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair gran/hooke/history/omp, perpetual
+      attributes: half, newton off, size, history, omp
+      pair build: half/size/bin/newtoff/omp
+      stencil: full/bin/3d
+      bin: standard
+Setting up NUFEB run ...
+  Unit style           : si
+  Current step         : 0
+  Biological time step : 5000
+  Chemical time step   : 0.0001
+  Physical time step   : 0.01
+  Grid mesh            : 100 x 100 x 100 
+Per MPI rank memory allocation (min/avg/max) = 12.19 | 12.29 | 12.4 Mbytes
+   Step          CPU          Atoms      v_ncross1      v_ncross2        v_neps        v_ndead         v_mass    
+         0   0                   1000   500            500            0              0              9.7618724e-13
+Initial diffusion reaction converged in 5000 steps
+pair interaction: 1 steps (pressure 7.264978e-02 N/m2)
+diffusion: 5000 steps
+         1   56.120812           1666   828            838            0              0              1.0011288e-12
+pair interaction: 1 steps (pressure 4.880270e-01 N/m2)
+diffusion: 5000 steps
+         2   112.73913           2272   1160           1112           0              0              1.0270809e-12
+pair interaction: 1 steps (pressure 5.337006e-01 N/m2)
+diffusion: 5000 steps
+         3   169.13424           2357   1206           1151           0              0              1.0540347e-12
+pair interaction: 1 steps (pressure 6.294469e-01 N/m2)
+diffusion: 5000 steps
+         4   226.145             2411   1242           1169           0              0              1.0819589e-12
+pair interaction: 1 steps (pressure 6.548372e-01 N/m2)
+diffusion: 5000 steps
+         5   283.72892           2468   1270           1198           0              0              1.1108889e-12
+pair interaction: 1 steps (pressure 7.573420e-01 N/m2)
+diffusion: 5000 steps
+         6   341.13663           2517   1297           1220           0              0              1.1408305e-12
+pair interaction: 1 steps (pressure 7.698715e-01 N/m2)
+diffusion: 5000 steps
+         7   397.85439           2596   1334           1262           0              0              1.1718389e-12
+pair interaction: 1 steps (pressure 8.760845e-01 N/m2)
+diffusion: 5000 steps
+         8   454.32383           2663   1363           1300           0              0              1.2039271e-12
+pair interaction: 1 steps (pressure 8.925949e-01 N/m2)
+diffusion: 5000 steps
+         9   510.75662           2740   1400           1324           16             0              1.2375325e-12
+pair interaction: 16 steps (pressure 9.776198e-01 N/m2)
+diffusion: 5000 steps
+        10   567.56743           5614   1439           1368           2807           0              1.3314169e-12
+pair interaction: 2 steps (pressure 9.500633e-01 N/m2)
+diffusion: 5000 steps
+        11   624.36614           5676   1466           1403           2807           0              1.3670542e-12
+pair interaction: 2 steps (pressure 9.382365e-01 N/m2)
+diffusion: 5000 steps
+        12   680.28294           5760   1510           1443           2807           0              1.4039712e-12
+pair interaction: 2 steps (pressure 9.357575e-01 N/m2)
+diffusion: 5000 steps
+        13   736.34848           5845   1551           1486           2808           0              1.4422481e-12
+pair interaction: 4 steps (pressure 9.592896e-01 N/m2)
+diffusion: 5000 steps
+        14   792.23678           6133   1592           1521           3020           0              1.4862137e-12
+pair interaction: 18 steps (pressure 9.760032e-01 N/m2)
+diffusion: 5000 steps
+        15   848.34387           8164   1642           1572           4950           0              1.5676659e-12
+pair interaction: 14 steps (pressure 9.828423e-01 N/m2)
+diffusion: 5000 steps
+        16   904.578             9376   1701           1628           6047           0              1.6333808e-12
+pair interaction: 4 steps (pressure 9.671837e-01 N/m2)
+diffusion: 5000 steps
+        17   960.88286           9474   1747           1677           6050           0              1.6776935e-12
+pair interaction: 4 steps (pressure 9.738107e-01 N/m2)
+diffusion: 5000 steps
+        18   1017.2049           9612   1798           1734           6080           0              1.7241689e-12
+pair interaction: 14 steps (pressure 9.991543e-01 N/m2)
+diffusion: 5000 steps
+        19   1073.3537          10354   1855           1794           6705           0              1.7842863e-12
+pair interaction: 28 steps (pressure 9.802584e-01 N/m2)
+diffusion: 5000 steps
+        20   1129.7465          12144   1907           1838           8399           0              1.8681938e-12
+pair interaction: 26 steps (pressure 9.937435e-01 N/m2)
+diffusion: 5000 steps
+        21   1186.5366          13506   1966           1896           9644           0              1.945504e-12 
+pair interaction: 12 steps (pressure 9.901593e-01 N/m2)
+diffusion: 5000 steps
+        22   1242.9737          13802   2024           1940           9838           0              2.0029842e-12
+pair interaction: 14 steps (pressure 9.914455e-01 N/m2)
+diffusion: 5000 steps
+        23   1299.5527          14166   2087           2000           10079          0              2.0634776e-12
+pair interaction: 34 steps (pressure 9.888539e-01 N/m2)
+diffusion: 5000 steps
+        24   1355.8706          15405   2160           2064           11181          0              2.1442631e-12
+pair interaction: 48 steps (pressure 9.885451e-01 N/m2)
+diffusion: 5000 steps
+        25   1412.3443          17263   2223           2133           12907          0              2.2399083e-12
+pair interaction: 40 steps (pressure 9.992741e-01 N/m2)
+diffusion: 5000 steps
+        26   1468.8612          18470   2297           2197           13976          0              2.3248965e-12
+pair interaction: 28 steps (pressure 9.892088e-01 N/m2)
+diffusion: 5000 steps
+        27   1525.136           18930   2366           2262           14302          0              2.3972467e-12
+pair interaction: 38 steps (pressure 9.942337e-01 N/m2)
+diffusion: 5000 steps
+        28   1581.2535          19727   2430           2319           14978          0              2.479675e-12 
+pair interaction: 64 steps (pressure 9.978660e-01 N/m2)
+diffusion: 5000 steps
+        29   1637.3287          21461   2508           2397           16556          0              2.5837669e-12
+pair interaction: 66 steps (pressure 9.989815e-01 N/m2)
+diffusion: 5000 steps
+        30   1693.7354          23270   2598           2483           18189          0              2.6926853e-12
+pair interaction: 56 steps (pressure 9.942522e-01 N/m2)
+diffusion: 5000 steps
+        31   1750.9717          24334   2692           2574           19068          0              2.7891818e-12
+pair interaction: 52 steps (pressure 9.929433e-01 N/m2)
+diffusion: 5000 steps
+        32   1808.1072          25211   2793           2678           19740          0              2.8845622e-12
+pair interaction: 74 steps (pressure 9.947240e-01 N/m2)
+diffusion: 5000 steps
+        33   1865.2657          26776   2880           2779           21117          0              2.9984604e-12
+pair interaction: 90 steps (pressure 9.985470e-01 N/m2)
+diffusion: 5000 steps
+        34   1922.4034          28798   2972           2873           22953          0              3.1267006e-12
+pair interaction: 90 steps (pressure 9.990558e-01 N/m2)
+diffusion: 5000 steps
+        35   1979.6705          30535   3072           2977           24486          0              3.2526616e-12
+pair interaction: 80 steps (pressure 9.988024e-01 N/m2)
+diffusion: 5000 steps
+        36   2036.6473          31750   3174           3083           25493          0              3.3726093e-12
+pair interaction: 104 steps (pressure 9.959026e-01 N/m2)
+diffusion: 5000 steps
+        37   2093.8833          33384   3294           3203           26887          0              3.505537e-12 
+pair interaction: 126 steps (pressure 9.982233e-01 N/m2)
+diffusion: 5000 steps
+        38   2151.3757          35599   3418           3335           28846          0              3.6552643e-12
+pair interaction: 132 steps (pressure 9.967250e-01 N/m2)
+diffusion: 5000 steps
+        39   2208.2264          37780   3548           3460           30772          0              3.8104282e-12
+pair interaction: 130 steps (pressure 9.988499e-01 N/m2)
+diffusion: 5000 steps
+        40   2265.4073          39606   3686           3589           32331          0              3.9645744e-12
+pair interaction: 158 steps (pressure 9.977073e-01 N/m2)
+diffusion: 5000 steps
+        41   2322.3513          41619   3821           3731           34067          0              4.129221e-12 
+pair interaction: 180 steps (pressure 9.993999e-01 N/m2)
+diffusion: 5000 steps
+        42   2378.6979          44147   3997           3869           36281          0              4.3107427e-12
+pair interaction: 196 steps (pressure 9.998263e-01 N/m2)
+diffusion: 5000 steps
+        43   2435.0169          46709   4147           4016           38546          0              4.5020611e-12
+pair interaction: 198 steps (pressure 9.998328e-01 N/m2)
+diffusion: 5000 steps
+        44   2491.1446          49088   4300           4183           40605          0              4.6982998e-12
+pair interaction: 216 steps (pressure 9.993059e-01 N/m2)
+diffusion: 5000 steps
+        45   2547.3358          51740   4494           4343           42903          0              4.9088733e-12
+pair interaction: 246 steps (pressure 9.995021e-01 N/m2)
+diffusion: 5000 steps
+        46   2603.8419          54741   4687           4521           45533          0              5.1371038e-12
+pair interaction: 260 steps (pressure 9.999181e-01 N/m2)
+diffusion: 5000 steps
+        47   2660.4128          57895   4877           4746           48272          0              5.3797467e-12
+pair interaction: 280 steps (pressure 9.993116e-01 N/m2)
+diffusion: 5000 steps
+        48   2716.9929          61058   5109           4959           50990          0              5.6344411e-12
+pair interaction: 306 steps (pressure 9.997902e-01 N/m2)
+diffusion: 5000 steps
+        49   2773.7622          64560   5344           5211           54005          0              5.9098322e-12
+pair interaction: 350 steps (pressure 9.994139e-01 N/m2)
+diffusion: 5000 steps
+        50   2830.8183          68292   5572           5480           57240          0              6.2063833e-12
+pair interaction: 388 steps (pressure 9.997662e-01 N/m2)
+diffusion: 5000 steps
+        51   2887.2537          72438   5867           5758           60813          0              6.5275393e-12
+pair interaction: 436 steps (pressure 9.995499e-01 N/m2)
+diffusion: 5000 steps
+        52   2943.6681          76644   6141           6057           64446          0              6.8708579e-12
+pair interaction: 468 steps (pressure 9.994169e-01 N/m2)
+diffusion: 5000 steps
+        53   3000.0309          81213   6476           6349           68388          0              7.2429641e-12
+pair interaction: 528 steps (pressure 9.997107e-01 N/m2)
+diffusion: 5000 steps
+        54   3056.5565          86376   6809           6711           72856          0              7.6530793e-12
+pair interaction: 582 steps (pressure 9.994647e-01 N/m2)
+diffusion: 5000 steps
+        55   3113.4811          91935   7190           7075           77670          0              8.0994578e-12
+pair interaction: 646 steps (pressure 9.997116e-01 N/m2)
+diffusion: 5000 steps
+        56   3170.8662          97800   7609           7474           82717          0              8.5851114e-12
+pair interaction: 762 steps (pressure 9.994637e-01 N/m2)
+diffusion: 5000 steps
+        57   3228.2966         104583   8079           7922           88582          0              9.1278506e-12
+pair interaction: 866 steps (pressure 9.997042e-01 N/m2)
+diffusion: 5000 steps
+        58   3286.2374         111895   8592           8427           94876          0              9.726066e-12 
+pair interaction: 1000 steps (pressure 9.999513e-01 N/m2)
+diffusion: 5000 steps
+        59   3344.959          119909   9177           9012           101720         0              1.0391168e-11
+pair interaction: 1000 steps (pressure 1.054190e+00 N/m2)
+diffusion: 5000 steps
+        60   3403.9042         129283   9817           9656           109810         0              1.1148581e-11
+pair interaction: 1000 steps (pressure 1.108329e+00 N/m2)
+diffusion: 5000 steps
+        61   3464.613          139532   10567          10410          118555         0              1.2000132e-11
+pair interaction: 1000 steps (pressure 1.193268e+00 N/m2)
+diffusion: 5000 steps
+        62   3525.4547         151444   11382          11318          128744         0              1.2979906e-11
+pair interaction: 1000 steps (pressure 1.308874e+00 N/m2)
+diffusion: 5000 steps
+        63   3586.4143         165106   12355          12239          140512         0              1.411809e-11 
+pair interaction: 1000 steps (pressure 1.440714e+00 N/m2)
+diffusion: 5000 steps
+        64   3648.7021         180610   13473          13351          153786         0              1.5446902e-11
+pair interaction: 1000 steps (pressure 1.627016e+00 N/m2)
+diffusion: 5000 steps
+        65   3712.2909         199329   14877          14726          169726         0              1.7040142e-11
+pair interaction: 1000 steps (pressure 1.872665e+00 N/m2)
+diffusion: 5000 steps
+        66   3776.8729         221707   16530          16362          188815         0              1.8980386e-11
+pair interaction: 1000 steps (pressure 2.213204e+00 N/m2)
+diffusion: 5000 steps
+        67   3843.1923         250476   18591          18436          213449         0              2.142808e-11 
+pair interaction: 1000 steps (pressure 2.689632e+00 N/m2)
+diffusion: 5000 steps
+        68   3912.5344         288526   21261          21080          246185         0              2.4606396e-11
+pair interaction: 1000 steps (pressure 3.349555e+00 N/m2)
+diffusion: 5000 steps
+        69   3985.0964         339753   24804          24713          290236         0              2.8877709e-11
+pair interaction: 1000 steps (pressure 4.220193e+00 N/m2)
+diffusion: 5000 steps
+        70   4066.0281         407278   29811          29667          347800         0              3.4847793e-11
+pair interaction: 1000 steps (pressure 5.377262e+00 N/m2)
+diffusion: 5000 steps
+        71   4157.104          496601   37352          37214          422035         0              4.3729981e-11
+pair interaction: 1000 steps (pressure 7.034224e+00 N/m2)
+diffusion: 5000 steps
+        72   4269.0066         620688   49722          49608          521358         0              5.8223549e-11
+pair interaction: 1000 steps (pressure 9.450698e+00 N/m2)
+diffusion: 5000 steps
+        73   4424.503          809264   72055          71898          665311         0              8.4681763e-11
+pair interaction: 1000 steps (pressure 1.315046e+01 N/m2)
+diffusion: 5000 steps
+        74   4690.0167        1132529   116909         116700         898920         0              1.3883303e-10
+pair interaction: 1000 steps (pressure 1.879682e+01 N/m2)
+diffusion: 5000 steps
+        75   5252.792         1737830   210077         209739         1318014        0              2.596496e-10 
+pair interaction: 1000 steps (pressure 2.637644e+01 N/m2)
+diffusion: 5000 steps
+        76   6697.593         2907638   403045         402577         2102016        0              5.3853603e-10
+pair interaction: 1000 steps (pressure 3.289759e+01 N/m2)
+diffusion: 5000 steps
+        77   10426.253        4996887   784142         783636         3429109        0              1.1542925e-09
+pair interaction: 1000 steps (pressure 3.667377e+01 N/m2)
+diffusion: 5000 steps
+        78   19097.86         8240982   1425566        1427029        5388387        0              2.3364293e-09
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,2]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,0]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:23323] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,3]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,1]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,6]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,7]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,4]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node002:00000] *** An error occurred in Socket closed
+[node002:00000] *** reported by process [2085027840,5]
+[node002:00000] *** on a NULL communicator
+[node002:00000] *** Unknown error
+[node002:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node002:00000] ***    and MPI will try to terminate your MPI job as well)
+[node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,50]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,58]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,57]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,59]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,62]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,48]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,56]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,61]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,55]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,52]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,60]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,49]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,63]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,53]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,51]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node005:00000] *** An error occurred in Socket closed
+[node005:00000] *** reported by process [2085027840,54]
+[node005:00000] *** on a NULL communicator
+[node005:00000] *** Unknown error
+[node005:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node005:00000] ***    and MPI will try to terminate your MPI job as well)
+ [node003:14826] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node003:14826] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2198
+[node003:00000] *** An error occurred in Socket closed
+[node003:00000] *** reported by process [2085027840,31]
+[node003:00000] *** on a NULL communicator
+[node003:00000] *** Unknown error
+[node003:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[node003:00000] ***    and MPI will try to terminate your MPI job as well)
+ end at Thu Aug 7 06:54:09 CST 2025
+========end=======================
+End at 06:54:09.259

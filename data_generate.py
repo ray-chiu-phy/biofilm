@@ -1,12 +1,12 @@
 import random
-
+import os
 # box size
-x_max = 1e-4
-y_max = 1e-4
-z_max = 1e-4
+x_max = 3e-4
+y_max = 3e-4
+z_max = 3e-4
 
 # numbers of prticles for each atom type
-counts = [120, 20]
+counts = [500, 500]
 
 rmins = [1e-6, 1e-6]
 
@@ -16,8 +16,8 @@ rmaxs = [2e-6, 2e-6]
 densities = [500, 500]
 
 outfile = "atom.in"
-
-
+os.chdir('C:/Users/User')
+print(f"hi{os.getcwd()}")
 def generate():
     n_types = len(counts)
     total_atoms = sum(counts)

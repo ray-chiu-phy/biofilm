@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#PBS -N hetero
+#PBS -l select=1:ncpus=16:mpiprocs=16
+#PBS -l walltime=24:00:00
+#PBS -j oe 
+#PBS -o /home/ray/biofilm/project/runexp/exp.log
+#PBS -r y
+#PBS -J 14-26
+
+module load openmpi-4.1.3_gcc1020/x86_64
+NODES=$(sort -u $PBS_NODEFILE | tr '\n' ',' | sed 's/,$//')  # node list
+NIC=$(ip route show default | awk '/default/ {print $5; exit}')
+echo $NIC
+export OMP_NUM_THREADS=1
+
+proj=runexp
+homedir=/home/ray/biofilm/project
+workdir=$homedir/$proj
+input=inputscript_CHEPS$PBS_ARRAY_INDEX.nufeb
+
+# Include the full path to the name of your MPI program
+nufeb=/home/ray/biofilm/NUFEB-2/nufeb_mpi
+
+cd $workdir
+echo ------------------------------------------------------
+echo -n "Job is running on:"; echo $NODES 
+echo ------------------------------------------------------
+echo PBS: Start at `date`
+echo PBS: Job name is $PBS_JOBNAME
+echo PBS: Job id is $PBS_JOBID
+echo PBS: qsub is running on $PBS_O_HOST
+echo PBS: Current working directory is `pwd`
+echo PBS: Originating queue is $PBS_O_QUEUE
+echo PBS: Executing queue is $PBS_QUEUE
+echo PBS: Execution mode is $PBS_ENVIRONMENT
+echo PBS: Node file is $PBS_NODEFILE
+echo PBS: Current home directory is $PBS_O_HOME
+echo PBS: SHELL = $SHELL
+echo ------------------------------------------------------
+
+echo =======start running==============   
+## run nufeb
+mpirun --mca btl_tcp_if_include $NIC -np 16 $nufeb -sf omp -in $workdir/$input -log cheps_log/cheps$PBS_ARRAY_INDEX.log
+echo end at `date` 
+echo ========end=======================
+
+echo End at $(date +%T.%3N)

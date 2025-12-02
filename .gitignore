@@ -1,0 +1,120 @@
+# ============================================
+# Cross-feeding Biofilm Simulation - .gitignore
+# ============================================
+
+# ----------------------
+# Large Binary Files (> 100 MB)
+# ----------------------
+# Video files
+*.mp4
+*.avi
+*.mov
+
+# Simulation outputs (VTK files)
+*.vtu
+*.vti
+*.vtk
+*.pvd
+
+# Compressed archives (large simulation results)
+*.zip
+
+# HDF5 data files
+*.h5
+*.hdf5
+
+# ----------------------
+# External Software (3.4 GB)
+# ----------------------
+# ParaView - should be installed separately
+ParaView-*/
+
+# NUFEB/LAMMPS compiled binaries
+lmp_*
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ----------------------
+# Build Artifacts
+# ----------------------
+*.o
+*.obj
+*.a
+*.lib
+CMakeCache.txt
+CMakeFiles/
+Makefile
+build/
+
+# ----------------------
+# Simulation Output Directories
+# ----------------------
+vtk_*/
+vtk/
+hdf5/
+
+# Large simulation result folders
+biofilm/sim_result/
+biofilm/cross_test/*/vtk*/
+biofilm/crossfeeding/*/vtk*/
+biofilm/crossfeeding/ch_test*/
+
+# HDF5 library (40 MB, can be downloaded)
+biofilm/hdf5-*/
+
+# Log files (keep templates, ignore numbered logs)
+log_*.txt
+log.lammps
+
+# ----------------------
+# IDE & Editor
+# ----------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+.env.*
+*.egg-info/
+dist/
+
+# ----------------------
+# Jupyter
+# ----------------------
+.ipynb_checkpoints/
+
+# ----------------------
+# Temporary Files
+# ----------------------
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ----------------------
+# Results (generated, not source)
+# ----------------------
+results/raw/*
+results/processed/*
+results/figures/*
+data/cached_samples/*
+
+# ----------------------
+# Claude Code local settings
+# ----------------------
+.claude/*
+CLAUDE.local.md

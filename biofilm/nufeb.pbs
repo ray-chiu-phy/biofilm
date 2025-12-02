@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#PBS -N ecoli
+#PBS -l nodes=10:ppn=16
+#PBS -l walltime=24:00:00
+#PBS -j oe 
+#PBS -o /home/ray/biofilm/project/rod-shape-ecoli/ecoli.log
+#PBS -r y
+
+module purge
+module load openmpi-4.1.3_gcc1020/x86_64
+NP=$(wc -l < $PBS_NODEFILE)
+# echo $(wc -l < $PBS_NODEFILE)
+
+proj=rod-shape-ecoli
+homedir=/home/ray/biofilm/project
+workdir=$homedir/$proj
+input=inputscript.lmp
+
+# Include the full path to the name of your MPI program
+nufeb=/home/ray/biofilm/NUFEB-2/nufeb_mpi
+
+echo ------------------------------------------------------
+echo "Job is running on:"; uniq $PBS_NODEFILE
+echo ------------------------------------------------------
+echo PBS: Start at `date`
+echo PBS: Job name is $PBS_JOBNAME
+echo PBS: Job id is $PBS_JOBID
+echo PBS: qsub is running on $PBS_O_HOST
+echo PBS: Current working directory is `pwd`
+echo PBS: Originating queue is $PBS_O_QUEUE
+echo PBS: Executing queue is $PBS_QUEUE
+echo PBS: Execution mode is $PBS_ENVIRONMENT
+echo PBS: Node file is $PBS_NODEFILE
+echo PBS: Current home directory is $PBS_O_HOME
+echo PBS: SHELL = $SHELL
+echo ------------------------------------------------------
+
+echo =======start running==============   
+## run nufeb
+mpirun --hostfile $PBS_NODEFILE -np ${NP} --mca btl ^openib  ${nufeb} -in $workdir/${input}
+echo ========end=======================
+
+echo End at $(date +%T.%3N)
+

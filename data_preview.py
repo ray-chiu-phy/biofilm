@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 
-fname = "C:/Users/User/atom.in"
+fname = "C:/Users/User/atom.in" #Desktop/分子研究/中研院物理所實習/biofilm/sim_result/co_NEPS/atom.in"
 
 def read_atom_file(fname):
     xs, ys, zs = [], [], []
@@ -41,7 +41,7 @@ def main():
     fig = plt.figure(figsize=(6,6))
     ax = fig.add_subplot(111, projection='3d')
 
-    lim = 1e-4
+    lim = 3e-4
     ax.set_xlim(0, lim)
     ax.set_ylim(0, lim)
     ax.set_zlim(0, lim)
